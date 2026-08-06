@@ -10,19 +10,19 @@ colors:
   living-sage: "#6B7B5A"
 typography:
   display:
-    fontFamily: "Instrument Serif, Georgia, serif"
+    fontFamily: "Literata, Georgia, serif"
     fontSize: "68px"
     fontWeight: 400
     lineHeight: 1.02
     letterSpacing: "-0.015em"
   headline:
-    fontFamily: "Instrument Serif, Georgia, serif"
+    fontFamily: "Literata, Georgia, serif"
     fontSize: "42px"
     fontWeight: 400
     lineHeight: 1.1
     letterSpacing: "-0.01em"
   title:
-    fontFamily: "Instrument Serif, Georgia, serif"
+    fontFamily: "Literata, Georgia, serif"
     fontSize: "28px"
     fontWeight: 400
     lineHeight: 1.2
@@ -32,7 +32,7 @@ typography:
     fontWeight: 400
     lineHeight: 1.65
   lede:
-    fontFamily: "Instrument Serif, Georgia, serif"
+    fontFamily: "Literata, Georgia, serif"
     fontSize: "26px"
     fontWeight: 400
     lineHeight: 1.4
@@ -112,7 +112,7 @@ components:
 
 This is a warm, grounded, everyday visual system built to feel like a diner booth on a real break — cream-topped table, one good serif set down on the paper, a mustard highlight sitting where a marker would rest. It reads as personal and unhurried, never as a productivity dashboard and never as a startup landing page. The reader is tired and has forty minutes; the design earns their attention by looking like a place a real person actually sits, not a stage a brand performs on.
 
-The core dyad is a single warm cream base (Notebook Cream) with a lifted lighter cream (Page Cream) for cards, one deep near-black (Deep Ink) for text and inverse surfaces, and one warm mustard accent (Highlighter Amber) that does almost all of the color work. Instrument Serif carries every headline and every eyebrow-adjacent moment; IBM Plex Sans carries the body. The one signature move — a **trailing period** in the brand's amber, applied to brand words and key CTAs — is the identity's smallest and most enforceable rule.
+The core dyad is a single warm cream base (Notebook Cream) with a lifted lighter cream (Page Cream) for cards, one deep near-black (Deep Ink) for text and inverse surfaces, and one warm mustard accent (Highlighter Amber) that does almost all of the color work. Literata carries every headline and every eyebrow-adjacent moment; IBM Plex Sans carries the body. The one signature move — a **trailing period** in the brand's amber, applied to brand words and key CTAs — is the identity's smallest and most enforceable rule.
 
 Density is generous. Sections breathe at 72–96px. Body copy caps around 620–720px so nothing feels like a wall of text on a phone. Motion is small: hover lifts of 1–2px, warm-tinted shadows that only appear on intent. Nothing pulses, nothing floats, nothing greets you with a modal.
 
@@ -152,24 +152,24 @@ A tight warm palette: two creams, one ink, one accent that does the heavy liftin
 
 ## Typography
 
-**Display Font:** Instrument Serif (with Georgia, serif fallback)
+**Display Font:** Literata (with Georgia, serif fallback)
 **Body Font:** IBM Plex Sans (with -apple-system, BlinkMacSystemFont, sans-serif fallback)
 
-**Character:** Instrument Serif is a low-contrast, quietly literary serif — it feels handwritten in the way a book feels handwritten, not the way calligraphy does. Pairing it with IBM Plex Sans (a humanist, slightly technical sans) grounds the pair: the serif carries feeling, the sans carries fact. Weights stay low: display and headlines all live at 400. Emphasis comes from size and italic, not from bold.
+**Character:** Literata is a warm, optically-sized reading serif designed for long-form text — it feels like a hardback novel set on the table, unhurried and personal. Pairing it with IBM Plex Sans (a humanist, slightly technical sans) grounds the pair: the serif carries feeling, the sans carries fact. Weights stay low: display and headlines all live at 400. Emphasis comes from size and italic, not from bold.
 
 ### Hierarchy
 
 - **Display** (400, 68px on desktop / 44px on mobile, line-height 1.02, letter-spacing -0.015em): hero and essay titles only. One per page.
 - **Headline** (400, 42px / 32px, line-height 1.1, letter-spacing -0.01em): major section titles ("Who this is for", "The Lunch Break Business Starter Kit").
 - **Title** (400, 28px, line-height 1.2): subsection titles, magnet card heading, essay-body h2, essay CTA heading.
-- **Lede** (400, 26px, line-height 1.4, Instrument Serif): the one-serif-paragraph opening under a headline. Also used for the Offer's "price-line" and blockquotes inside essays.
+- **Lede** (400, 26px, line-height 1.4, Literata): the one-serif-paragraph opening under a headline. Also used for the Offer's "price-line" and blockquotes inside essays.
 - **Body** (400, 17px, line-height 1.65, max ~640–720px): standard reading text.
 - **Essay Body** (400, 19px, line-height 1.7): the essay-page reading experience, one step larger than marketing body copy. The first line of the first paragraph is bumped to weight 600 as a small drop-cap-adjacent gesture.
 - **Label / Eyebrow** (700, 11–12px, uppercase, letter-spacing 0.14–0.16em, IBM Plex Sans): section eyebrows, essay meta, nav secondary text.
 
 ### Named Rules
 
-**The Serif-Owns-Feeling Rule.** Instrument Serif is used for every headline, every lede, every module number, every blockquote, every wordmark. IBM Plex Sans is used for every body sentence, every button label, every eyebrow, every nav link, every form field. Never mix.
+**The Serif-Owns-Feeling Rule.** Literata is used for every headline, every lede, every module number, every blockquote, every wordmark. IBM Plex Sans is used for every body sentence, every button label, every eyebrow, every nav link, every form field. Never mix.
 
 **The One-Voice-Per-Section Rule.** No section uses more than two type sizes plus its eyebrow. If a section wants a third, it becomes two sections.
 
@@ -240,7 +240,7 @@ Editorial and grounded. Buttons feel weighty, cards feel like torn sheets, input
 
 ### Navigation
 
-- **Style:** two-column flex, Instrument Serif brand mark on the left (22px, with amber "."), IBM Plex Sans 500 links on the right (14px, muted-brown at rest).
+- **Style:** two-column flex, Literata brand mark on the left (22px, with amber "."), IBM Plex Sans 500 links on the right (14px, muted-brown at rest).
 - **Hover / active:** link color transitions to Deep Ink (`0.15s ease`). No underline, no background pill.
 - **Wrapper padding:** 24px 32px desktop, 20px 24px mobile. The nav uses the wide container (1080px) rather than the reading container (720px), so it always feels like a page-width top rail.
 
@@ -256,7 +256,7 @@ The `.dot` span sits inside brand words and primary CTAs. It renders as a single
 
 ### Do:
 
-- **Do** use Instrument Serif for every headline, lede, blockquote, module number, and wordmark; IBM Plex Sans for every body sentence, button label, eyebrow, and nav link.
+- **Do** use Literata for every headline, lede, blockquote, module number, and wordmark; IBM Plex Sans for every body sentence, button label, eyebrow, and nav link.
 - **Do** wrap the brand mark and hero CTAs in a `.dot` span so the trailing period renders in Highlighter Amber.
 - **Do** use the highlighter swipe at most once per hero, on a short (1–4 word) fragment of the h1.
 - **Do** flip to the Deep Ink inverse (Offer / Footer treatment) when a section needs the strongest possible emphasis — never with a second saturated hue.

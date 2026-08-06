@@ -1,6 +1,6 @@
 /* Lunch Break Business — site stylesheet */
 
-@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;1,7..72,400&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap');
 
 :root {
   --bg:     #F4EDE1;
@@ -9,7 +9,7 @@
   --muted:  #8A7860;
   --accent: #D89A2B;
   --sage:   #6B7B5A;
-  --font-display: 'Instrument Serif', Georgia, serif;
+  --font-display: 'Literata', Georgia, serif;
   --font-body:    'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   --max-w: 720px;
 }
