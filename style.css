@@ -420,10 +420,10 @@ a:hover { text-decoration-thickness: 2px; }
   border-bottom: 1px solid rgba(0,0,0,0.08);
   text-decoration: none;
   color: var(--ink);
-  transition: padding-left 0.2s ease;
+  transition: transform 0.15s ease;
 }
 .essay-card:hover {
-  padding-left: 8px;
+  transform: translateX(6px);
 }
 .essay-card .meta {
   font-size: 12px;
@@ -509,14 +509,16 @@ a:hover { text-decoration-thickness: 2px; }
 }
 .essay-body li { margin-bottom: 8px; }
 .essay-body blockquote {
-  border-left: 3px solid var(--accent);
-  padding: 4px 20px;
-  margin: 24px 0;
+  margin: 32px 24px;
+  padding: 0;
   font-family: var(--font-display);
-  font-size: 22px;
+  font-style: italic;
+  font-size: 26px;
   line-height: 1.4;
   color: var(--ink);
 }
+.essay-body blockquote p { margin-bottom: 12px; }
+.essay-body blockquote p:last-child { margin-bottom: 0; }
 
 .essay-cta {
   margin-top: 72px;

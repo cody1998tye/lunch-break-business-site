@@ -1,0 +1,244 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-08-06T18:18:34Z",
+  "title": "Design System: Lunch Break Business",
+  "extensions": {
+    "colorMeta": {
+      "notebook-cream": {
+        "role": "neutral",
+        "displayName": "Notebook Cream",
+        "canonical": "oklch(94% 0.025 78)",
+        "tonalRamp": [
+          "oklch(20% 0.02 78)",
+          "oklch(32% 0.02 78)",
+          "oklch(44% 0.022 78)",
+          "oklch(56% 0.024 78)",
+          "oklch(68% 0.025 78)",
+          "oklch(80% 0.025 78)",
+          "oklch(94% 0.025 78)",
+          "oklch(98% 0.012 78)"
+        ]
+      },
+      "page-cream": {
+        "role": "neutral",
+        "displayName": "Page Cream",
+        "canonical": "oklch(97.5% 0.02 82)",
+        "tonalRamp": [
+          "oklch(22% 0.015 82)",
+          "oklch(34% 0.017 82)",
+          "oklch(46% 0.019 82)",
+          "oklch(58% 0.02 82)",
+          "oklch(70% 0.02 82)",
+          "oklch(82% 0.02 82)",
+          "oklch(90% 0.02 82)",
+          "oklch(97.5% 0.02 82)"
+        ]
+      },
+      "deep-ink": {
+        "role": "neutral",
+        "displayName": "Deep Ink",
+        "canonical": "oklch(18% 0.008 60)",
+        "tonalRamp": [
+          "oklch(12% 0.008 60)",
+          "oklch(18% 0.008 60)",
+          "oklch(28% 0.01 60)",
+          "oklch(40% 0.012 60)",
+          "oklch(54% 0.014 60)",
+          "oklch(68% 0.014 60)",
+          "oklch(82% 0.012 60)",
+          "oklch(94% 0.01 60)"
+        ]
+      },
+      "muted-brown": {
+        "role": "neutral",
+        "displayName": "Muted Brown",
+        "canonical": "oklch(58% 0.04 62)",
+        "tonalRamp": [
+          "oklch(22% 0.03 62)",
+          "oklch(32% 0.035 62)",
+          "oklch(42% 0.038 62)",
+          "oklch(50% 0.04 62)",
+          "oklch(58% 0.04 62)",
+          "oklch(70% 0.038 62)",
+          "oklch(82% 0.03 62)",
+          "oklch(92% 0.02 62)"
+        ]
+      },
+      "highlighter-amber": {
+        "role": "primary",
+        "displayName": "Highlighter Amber",
+        "canonical": "oklch(70% 0.14 68)",
+        "tonalRamp": [
+          "oklch(28% 0.09 68)",
+          "oklch(40% 0.12 68)",
+          "oklch(50% 0.14 68)",
+          "oklch(60% 0.15 68)",
+          "oklch(70% 0.14 68)",
+          "oklch(80% 0.12 68)",
+          "oklch(88% 0.08 68)",
+          "oklch(95% 0.04 68)"
+        ]
+      },
+      "living-sage": {
+        "role": "secondary",
+        "displayName": "Living Sage",
+        "canonical": "oklch(50% 0.045 128)",
+        "tonalRamp": [
+          "oklch(22% 0.03 128)",
+          "oklch(32% 0.038 128)",
+          "oklch(42% 0.043 128)",
+          "oklch(50% 0.045 128)",
+          "oklch(60% 0.045 128)",
+          "oklch(72% 0.04 128)",
+          "oklch(84% 0.03 128)",
+          "oklch(94% 0.018 128)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display Serif", "purpose": "Hero and essay titles only — one per page." },
+      "headline": { "displayName": "Headline Serif", "purpose": "Major section titles like 'Who this is for' and 'The Starter Kit'." },
+      "title": { "displayName": "Title Serif", "purpose": "Subsection titles, essay-body h2, magnet card, CTA card headings." },
+      "lede": { "displayName": "Lede Serif", "purpose": "One-serif-paragraph opening under a headline; also blockquotes and the Offer's price line." },
+      "body": { "displayName": "Body Sans", "purpose": "Standard reading text on marketing surfaces." },
+      "label": { "displayName": "Eyebrow Label", "purpose": "Uppercase micro-label above section titles, essay meta, and nav secondary text." }
+    },
+    "shadows": [
+      { "name": "ink-lift", "value": "0 6px 16px rgba(28, 26, 23, 0.2)", "purpose": "Primary button on cream surfaces, on hover. Paired with translateY(-1px)." },
+      { "name": "ink-card-lift", "value": "0 8px 24px rgba(28, 26, 23, 0.08)", "purpose": "Featured essay card, on hover. Paired with translateY(-2px)." },
+      { "name": "amber-lift", "value": "0 6px 16px rgba(216, 154, 43, 0.3)", "purpose": "Offer CTA (amber-on-ink), on hover." }
+    ],
+    "motion": [
+      { "name": "ease-tap", "value": "cubic-bezier(0.4, 0, 0.2, 1)", "purpose": "Default easing for state transitions." },
+      { "name": "duration-press", "value": "0.1s", "purpose": "Button transform on hover — fast enough to feel responsive on a phone." },
+      { "name": "duration-lift", "value": "0.15s", "purpose": "Card and shadow transitions on hover." },
+      { "name": "duration-slide", "value": "0.2s", "purpose": "Essay-card left-padding slide on hover (list-item reveal)." }
+    ],
+    "breakpoints": [
+      { "name": "mobile", "value": "700px", "purpose": "Single-column collapse for who-grid, offer-modules, and type scale reduction." }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button (on cream)",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Solid ink button used on cream surfaces. The trailing dot renders as an amber span inside the label.",
+      "html": "<a href=\"#\" class=\"ds-btn ds-btn-primary\">Get the Starter Kit<span class=\"ds-dot\">.</span></a>",
+      "css": ".ds-btn { display: inline-block; padding: 16px 28px; border-radius: 8px; font-family: 'IBM Plex Sans', -apple-system, sans-serif; font-weight: 600; font-size: 16px; text-decoration: none; cursor: pointer; border: none; transition: transform 0.1s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.15s cubic-bezier(0.4, 0, 0.2, 1); } .ds-btn-primary { background: #1C1A17; color: #F4EDE1; } .ds-btn-primary:hover, .ds-btn-primary:focus-visible { transform: translateY(-1px); box-shadow: 0 6px 16px rgba(28, 26, 23, 0.2); outline: none; } .ds-btn-primary .ds-dot { color: #D89A2B; }"
+    },
+    {
+      "name": "Primary Button (on ink)",
+      "kind": "button",
+      "refersTo": "button-primary-on-ink",
+      "description": "The site's single strongest CTA — amber fill on the Deep Ink Offer block.",
+      "html": "<a href=\"#\" class=\"ds-btn ds-btn-primary-on-ink\">Get the Starter Kit \u2192</a>",
+      "css": ".ds-btn-primary-on-ink { display: inline-block; padding: 18px 32px; border-radius: 8px; background: #D89A2B; color: #1C1A17; font-family: 'IBM Plex Sans', -apple-system, sans-serif; font-weight: 600; font-size: 17px; text-decoration: none; border: none; cursor: pointer; transition: transform 0.1s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.15s cubic-bezier(0.4, 0, 0.2, 1); } .ds-btn-primary-on-ink:hover, .ds-btn-primary-on-ink:focus-visible { transform: translateY(-1px); box-shadow: 0 6px 16px rgba(216, 154, 43, 0.3); outline: none; }"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Outlined ink button — the visible box matches the primary despite the 1.5px border.",
+      "html": "<a href=\"#\" class=\"ds-btn ds-btn-secondary\">Free \u2014 16 viral templates</a>",
+      "css": ".ds-btn-secondary { display: inline-block; padding: 14.5px 26.5px; border-radius: 8px; background: transparent; color: #1C1A17; border: 1.5px solid #1C1A17; font-family: 'IBM Plex Sans', -apple-system, sans-serif; font-weight: 600; font-size: 16px; text-decoration: none; cursor: pointer; transition: background 0.15s cubic-bezier(0.4, 0, 0.2, 1), color 0.15s cubic-bezier(0.4, 0, 0.2, 1); } .ds-btn-secondary:hover, .ds-btn-secondary:focus-visible { background: #1C1A17; color: #F4EDE1; outline: none; }"
+    },
+    {
+      "name": "Featured Essay Card",
+      "kind": "card",
+      "refersTo": "card-featured",
+      "description": "The signature 'lifted sheet' — Page Cream on Notebook Cream, hairline border, lifts on hover.",
+      "html": "<a href=\"#\" class=\"ds-featured\"><div class=\"ds-featured-eyebrow\">Aug 5, 2026 \u00b7 Essay</div><div class=\"ds-featured-title\">3 Offer Formats That Actually Work for Beginners</div><div class=\"ds-featured-pull\">You're worrying too much about how to package your offer. There are only three options when starting out.</div><span class=\"ds-featured-cta\">Read the essay \u2192</span></a>",
+      "css": ".ds-featured { display: block; background: #FFF8EC; border: 1px solid rgba(0,0,0,0.06); border-radius: 14px; padding: 40px 44px 44px; color: #1C1A17; text-decoration: none; transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.15s cubic-bezier(0.4, 0, 0.2, 1); } .ds-featured:hover, .ds-featured:focus-visible { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(28, 26, 23, 0.08); outline: none; } .ds-featured-eyebrow { font-family: 'IBM Plex Sans', -apple-system, sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: #6B7B5A; margin-bottom: 14px; } .ds-featured-title { font-family: 'Instrument Serif', Georgia, serif; font-size: 38px; line-height: 1.15; color: #1C1A17; margin-bottom: 14px; font-weight: 400; } .ds-featured-pull { font-family: 'IBM Plex Sans', -apple-system, sans-serif; font-size: 16px; color: #8A7860; line-height: 1.55; } .ds-featured-cta { display: inline-block; margin-top: 20px; font-family: 'IBM Plex Sans', -apple-system, sans-serif; font-size: 14px; font-weight: 600; color: #D89A2B; }"
+    },
+    {
+      "name": "Module Card (on ink)",
+      "kind": "card",
+      "refersTo": "card-module-on-ink",
+      "description": "The Starter Kit's numbered module block — near-invisible fill on the Offer's dark ground, amber serif numeral.",
+      "html": "<div class=\"ds-module\"><div class=\"ds-module-num\">01</div><div class=\"ds-module-title\">Find Your Overlap</div><div class=\"ds-module-desc\">Identify what you already know that someone will pay for.</div></div>",
+      "css": ".ds-module { padding: 24px 26px; background: rgba(255, 248, 236, 0.04); border: 1px solid rgba(255, 248, 236, 0.08); border-radius: 10px; } .ds-module-num { font-family: 'Instrument Serif', Georgia, serif; font-size: 32px; color: #D89A2B; line-height: 1; margin-bottom: 10px; font-weight: 400; } .ds-module-title { font-family: 'Instrument Serif', Georgia, serif; font-size: 22px; color: #F4EDE1; margin-bottom: 8px; font-weight: 400; } .ds-module-desc { font-family: 'IBM Plex Sans', -apple-system, sans-serif; font-size: 14px; color: rgba(255, 248, 236, 0.7); line-height: 1.55; }"
+    },
+    {
+      "name": "Magnet Card (Coupon)",
+      "kind": "card",
+      "refersTo": "card-magnet",
+      "description": "The lead-magnet block. Dashed muted-brown border is a 'coupon cut-out' gesture and the only dashed border on the site.",
+      "html": "<div class=\"ds-magnet\"><div class=\"ds-magnet-eyebrow\">Free</div><h3 class=\"ds-magnet-title\">16 viral post templates.</h3><p class=\"ds-magnet-body\">The proven templates I use to get the right person to stop scrolling.</p><form class=\"ds-magnet-form\"><input class=\"ds-input\" type=\"email\" placeholder=\"your@email.com\"><button class=\"ds-btn ds-btn-primary\" type=\"submit\">Send the templates</button></form></div>",
+      "css": ".ds-magnet { background: #FFF8EC; border: 1px dashed #8A7860; border-radius: 12px; padding: 40px 44px; text-align: center; } .ds-magnet-eyebrow { font-family: 'IBM Plex Sans', -apple-system, sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.16em; color: #6B7B5A; margin-bottom: 16px; } .ds-magnet-title { font-family: 'Instrument Serif', Georgia, serif; font-size: 32px; color: #1C1A17; margin-bottom: 12px; font-weight: 400; } .ds-magnet-body { font-family: 'IBM Plex Sans', -apple-system, sans-serif; color: #8A7860; max-width: 480px; margin: 0 auto 24px; line-height: 1.55; font-size: 17px; } .ds-magnet-form { display: flex; gap: 10px; max-width: 460px; margin: 0 auto; flex-wrap: wrap; justify-content: center; }"
+    },
+    {
+      "name": "Email Input",
+      "kind": "input",
+      "refersTo": "input-email",
+      "description": "Ruled-line field. Border color shift on focus — no ring, no glow.",
+      "html": "<input class=\"ds-input\" type=\"email\" placeholder=\"your@email.com\">",
+      "css": ".ds-input { flex: 1; min-width: 220px; padding: 14px 18px; border: 1.5px solid #8A7860; border-radius: 8px; background: #F4EDE1; color: #1C1A17; font-family: 'IBM Plex Sans', -apple-system, sans-serif; font-size: 15px; } .ds-input:focus { outline: none; border-color: #1C1A17; }"
+    },
+    {
+      "name": "Top Navigation",
+      "kind": "nav",
+      "refersTo": "nav-link",
+      "description": "Wide-container flex nav: serif brand mark with amber dot on the left, muted sans links on the right.",
+      "html": "<nav class=\"ds-nav\"><a href=\"/\" class=\"ds-nav-brand\">Lunch Break Business<span class=\"ds-dot\">.</span></a><div class=\"ds-nav-links\"><a href=\"/essays\">Essays</a><a href=\"/#starter-kit\">Starter Kit</a></div></nav>",
+      "css": ".ds-nav { max-width: 1080px; margin: 0 auto; padding: 24px 32px; display: flex; align-items: center; justify-content: space-between; background: #F4EDE1; } .ds-nav-brand { font-family: 'Instrument Serif', Georgia, serif; font-size: 22px; color: #1C1A17; text-decoration: none; letter-spacing: -0.005em; } .ds-nav-brand .ds-dot { color: #D89A2B; } .ds-nav-links { display: flex; gap: 24px; } .ds-nav-links a { font-family: 'IBM Plex Sans', -apple-system, sans-serif; font-size: 14px; color: #8A7860; text-decoration: none; font-weight: 500; transition: color 0.15s cubic-bezier(0.4, 0, 0.2, 1); } .ds-nav-links a:hover, .ds-nav-links a:focus-visible { color: #1C1A17; outline: none; }"
+    },
+    {
+      "name": "Highlighter Swipe (Signature)",
+      "kind": "custom",
+      "description": "The site's most identifiable typographic move: a soft asymmetric amber highlighter stroke behind a headline fragment. Use at most once per hero.",
+      "html": "<h1 class=\"ds-h1\">Build your first online offer <span class=\"ds-swipe\">in the margins.</span></h1>",
+      "css": ".ds-h1 { font-family: 'Instrument Serif', Georgia, serif; font-size: 68px; line-height: 1.02; letter-spacing: -0.015em; color: #1C1A17; font-weight: 400; } .ds-swipe { display: inline; padding: 0 4px; background-image: linear-gradient(120deg, transparent 0%, rgba(216, 154, 43, 0.5) 12%, rgba(216, 154, 43, 0.75) 55%, rgba(216, 154, 43, 0.5) 90%, transparent 100%); background-repeat: no-repeat; background-size: 100% 62%; background-position: 0 78%; }"
+    },
+    {
+      "name": "Trailing Dot (Signature)",
+      "kind": "custom",
+      "description": "The brand mark's identifier: a single period in Highlighter Amber, rendered as a real span so screen readers announce it.",
+      "html": "<span class=\"ds-brand\">Lunch Break Business<span class=\"ds-dot\">.</span></span>",
+      "css": ".ds-brand { font-family: 'Instrument Serif', Georgia, serif; font-size: 22px; color: #1C1A17; letter-spacing: -0.005em; } .ds-brand .ds-dot { color: #D89A2B; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Lunch Table",
+    "overview": "This is a warm, grounded, everyday visual system built to feel like a diner booth on a real break \u2014 cream-topped table, one good serif set down on the paper, a mustard highlight sitting where a marker would rest. It reads as personal and unhurried, never as a productivity dashboard and never as a startup landing page. The reader is tired and has forty minutes; the design earns their attention by looking like a place a real person actually sits, not a stage a brand performs on.\n\nThe core dyad is a single warm cream base (Notebook Cream) with a lifted lighter cream (Page Cream) for cards, one deep near-black (Deep Ink) for text and inverse surfaces, and one warm mustard accent (Highlighter Amber) that does almost all of the color work. Instrument Serif carries every headline and every eyebrow-adjacent moment; IBM Plex Sans carries the body. The one signature move \u2014 a trailing period in the brand's amber, applied to brand words and key CTAs \u2014 is the identity's smallest and most enforceable rule.\n\nDensity is generous. Sections breathe at 72\u201396px. Body copy caps around 620\u2013720px so nothing feels like a wall of text on a phone. Motion is small: hover lifts of 1\u20132px, warm-tinted shadows that only appear on intent. Nothing pulses, nothing floats, nothing greets you with a modal.",
+    "keyCharacteristics": [
+      "Two-cream ground with a single deep-ink text tone.",
+      "One dominant accent (Highlighter Amber) doing dot, highlight, CTA-on-ink, and rule work.",
+      "Serif display + humanist sans body pairing, always in the same relative sizes.",
+      "Flat by default; warm shadows only as a response to hover or focus.",
+      "One inverted 'night' surface (the Offer block) that flips the whole palette without changing its logic."
+    ],
+    "rules": [
+      { "name": "The One Highlight Rule", "body": "Highlighter Amber is the only saturated color on any surface. If a page needs a second point of emphasis, use weight, scale, or the inverse Offer treatment \u2014 not a second hue.", "section": "colors" },
+      { "name": "The No-Pure-White Rule", "body": "White does not exist in this system. Every 'light' surface is a cream. If a texture, illustration, or embedded asset ships with #FFFFFF, treat it as a bug and correct it to Notebook Cream or Page Cream.", "section": "colors" },
+      { "name": "The Trailing-Dot Rule", "body": "The brand mark is the word plus a period ('Lunch Break Business.'). Wherever the brand or a headline CTA is rendered, the period is a distinct span rendered in Highlighter Amber. It is not decorative \u2014 it is the identifier.", "section": "colors" },
+      { "name": "The Serif-Owns-Feeling Rule", "body": "Instrument Serif is used for every headline, every lede, every module number, every blockquote, every wordmark. IBM Plex Sans is used for every body sentence, every button label, every eyebrow, every nav link, every form field. Never mix.", "section": "typography" },
+      { "name": "The One-Voice-Per-Section Rule", "body": "No section uses more than two type sizes plus its eyebrow. If a section wants a third, it becomes two sections.", "section": "typography" },
+      { "name": "The Weight-400 Rule", "body": "Serif headlines never go above weight 400. Emphasis inside a serif headline is done with italic or with the highlighter swipe span, not with weight.", "section": "typography" },
+      { "name": "The Warm-Lift-on-Intent Rule", "body": "Shadows exist to say 'this responds to you,' not 'this is higher than that.' They appear only under :hover (and equivalent :focus-visible), always paired with a 1\u20132px translate, always tinted warm.", "section": "elevation" },
+      { "name": "The No-Cool-Shadow Rule", "body": "Every shadow color is derived from Deep Ink or Highlighter Amber. Never rgba(0,0,0,X), never a blue-cast neutral.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do use Instrument Serif for every headline, lede, blockquote, module number, and wordmark; IBM Plex Sans for every body sentence, button label, eyebrow, and nav link.",
+      "Do wrap the brand mark and hero CTAs in a .dot span so the trailing period renders in Highlighter Amber.",
+      "Do use the highlighter swipe at most once per hero, on a short (1\u20134 word) fragment of the h1.",
+      "Do flip to the Deep Ink inverse (Offer / Footer treatment) when a section needs the strongest possible emphasis \u2014 never with a second saturated hue.",
+      "Do keep secondary buttons at 1.5px border and adjusted padding so their visible box matches the primary.",
+      "Do cap body-text sections at ~620\u2013720px reading width, even inside a wider container.",
+      "Do tint hover shadows warm (Deep Ink or Highlighter Amber, at low alpha) and always pair them with a 1\u20132px translate.",
+      "Do reserve Living Sage for editorial-context eyebrows only; treat any other use as a bug.",
+      "Do use the dashed muted-brown border only on the magnet card (its 'coupon' identity)."
+    ],
+    "donts": [
+      "Don't introduce pure white (#FFFFFF) anywhere \u2014 every light surface is a cream.",
+      "Don't add a second saturated hue. Highlighter Amber is the only accent.",
+      "Don't use bold serif weights for headlines. Serif stays at weight 400; emphasis is italic, size, or the highlighter swipe.",
+      "Don't put a resting shadow on any surface. Shadows appear only on hover/focus.",
+      "Don't use gray or cool-cast shadows (rgba(0,0,0,X)). Shadows are warm.",
+      "Don't fabricate social proof \u2014 no invented testimonials, star ratings, 'trusted by' strips, or buyer counts. See PRODUCT.md's Evidence on Hand section.",
+      "Don't use Living Sage on a CTA, inside the Offer block, or as body copy.",
+      "Don't mix dashed and solid borders inside the same section. The magnet card is the only dashed surface on the site.",
+      "Don't render the brand name without its trailing period, and never render the period in Deep Ink or Muted Brown \u2014 it is always Highlighter Amber."
+    ]
+  }
+}
