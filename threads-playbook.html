@@ -1,0 +1,435 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Lunch Break Business: The Threads Playbook — Grow Your First 1,000 Followers in 30 Days</title>
+<meta name="description" content="The proven 30-minute daily system that took a full-time working dad from 0 to 18,000+ followers on Threads. No viral luck. No algorithm hacks. Just a system.">
+<link rel="stylesheet" href="style.css">
+<style>
+  /* ── PRODUCT HERO ───────────────────────────────── */
+  .product-hero {
+    padding: 88px 0 72px;
+  }
+  .product-hero .h1 {
+    max-width: 680px;
+    margin-bottom: 24px;
+  }
+  .product-hero .hero-sub {
+    max-width: 580px;
+    margin-top: 0;
+  }
+  .price-badge {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 10px;
+    margin-top: 36px;
+    margin-bottom: 8px;
+  }
+  .price-now {
+    font-family: var(--font-display);
+    font-size: 48px;
+    color: var(--ink);
+    line-height: 1;
+  }
+  .price-was {
+    font-size: 18px;
+    color: var(--muted);
+    text-decoration: line-through;
+  }
+  .price-note {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 28px;
+  }
+
+  /* ── PROBLEM ────────────────────────────────────── */
+  .problem {
+    padding: 72px 0;
+    background: var(--card);
+    border-top: 1px solid rgba(0,0,0,0.06);
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+  }
+  .problem-body {
+    margin-top: 28px;
+    font-size: 19px;
+    line-height: 1.7;
+    color: var(--ink);
+    max-width: 640px;
+  }
+  .problem-body p { margin-bottom: 20px; }
+  .truth-bomb {
+    margin: 36px 0;
+    padding: 28px 32px;
+    border-left: 3px solid var(--accent);
+    background: rgba(216,154,43,0.07);
+    border-radius: 0 8px 8px 0;
+    font-family: var(--font-display);
+    font-size: 22px;
+    line-height: 1.4;
+    color: var(--ink);
+  }
+
+  /* ── TESTIMONIALS ───────────────────────────────── */
+  .proof {
+    padding: 80px 0;
+  }
+  .proof-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 40px;
+  }
+  .proof-card {
+    background: var(--card);
+    border: 1px solid rgba(0,0,0,0.06);
+    border-radius: 12px;
+    padding: 28px 30px;
+  }
+  .proof-card .quote {
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--ink);
+    margin-bottom: 20px;
+  }
+  .proof-card .attribution {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .proof-card .attribution img {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  .proof-card .attr-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .proof-card .attr-handle {
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  /* ── OFFER STACK ITEMS ──────────────────────────── */
+  .stack-item {
+    display: flex;
+    gap: 20px;
+    padding: 24px 0;
+    border-bottom: 1px solid rgba(255,248,236,0.08);
+    align-items: flex-start;
+  }
+  .stack-item:last-child { border-bottom: none; }
+  .stack-num {
+    font-family: var(--font-display);
+    font-size: 28px;
+    color: var(--accent);
+    line-height: 1;
+    min-width: 36px;
+    padding-top: 3px;
+  }
+  .stack-title {
+    font-family: var(--font-display);
+    font-size: 20px;
+    color: var(--bg);
+    margin-bottom: 6px;
+  }
+  .stack-desc {
+    font-size: 14px;
+    color: rgba(255,248,236,0.7);
+    line-height: 1.6;
+  }
+
+  /* ── FAQ ────────────────────────────────────────── */
+  .faq {
+    padding: 72px 0 80px;
+    background: var(--card);
+    border-top: 1px solid rgba(0,0,0,0.06);
+  }
+  .faq-list {
+    margin-top: 40px;
+  }
+  .faq-item {
+    padding: 28px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+  }
+  .faq-item:first-child { padding-top: 0; }
+  .faq-q {
+    font-family: var(--font-display);
+    font-size: 20px;
+    color: var(--ink);
+    margin-bottom: 12px;
+    line-height: 1.3;
+  }
+  .faq-a {
+    font-size: 16px;
+    color: var(--ink);
+    line-height: 1.7;
+  }
+  .faq-a p { margin-bottom: 12px; }
+  .faq-a p:last-child { margin-bottom: 0; }
+
+  /* ── RESPONSIVE ─────────────────────────────────── */
+  @media (max-width: 700px) {
+    .proof-grid { grid-template-columns: 1fr; }
+    .product-hero { padding: 56px 0 48px; }
+    .price-now { font-size: 36px; }
+    .truth-bomb { font-size: 18px; padding: 20px 22px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="index.html" class="nav-brand">Lunch Break Business<span class="dot">.</span></a>
+  <div class="nav-links">
+    <a href="blog/index.html">Blog</a>
+    <a href="#get-it" class="active">Threads Playbook</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="product-hero container">
+  <div class="eyebrow">Lunch Break Business: The Threads Playbook</div>
+  <h1 class="h1">Grow your first 1,000 followers on Threads <span class="swipe">in 30 days.</span></h1>
+  <p class="hero-sub">
+    The exact 30-minute daily system a full-time working dad used to go from 0 to 18,000+ followers — no viral luck, no ads, no posting ten times a day.
+  </p>
+  <div class="price-badge">
+    <span class="price-now">$49</span>
+    <span class="price-was">$97</span>
+  </div>
+  <p class="price-note">One-time payment · Instant download · Lifetime access · All future updates free</p>
+  <div class="btn-row">
+    <a href="https://followrs.store/realcodytye/the-30-minute-visibility-system?track=ZQqieuP0" class="btn btn-primary" id="get-it" target="_blank" rel="noopener">Give me The Playbook →</a>
+  </div>
+</header>
+
+<!-- PROBLEM -->
+<section class="problem">
+  <div class="container">
+    <div class="eyebrow">Sound familiar?</div>
+    <h2 class="h2">You're not invisible because your content isn't good enough.</h2>
+    <div class="problem-body">
+      <p>You're showing up. Posting consistently. Studying what the big creators are doing. But still — nothing. No followers. No engagement. Just your words disappearing into a feed that doesn't know you exist.</p>
+      <p>Meanwhile, creators in your exact niche are blowing up. Racking up thousands of followers. Building businesses. And you're sitting there wondering: what are they doing that I'm not?</p>
+      <div class="truth-bomb">
+        You're invisible because you don't have a visibility system. You don't need another hook guide. You don't need to post 10 times a day. You just need a system that makes people see you — every single day.
+      </div>
+      <p>Threads rewards conversation and presence, not just content output. The creators growing fastest aren't posting the best content. They're showing up strategically, in the right places, in front of the right people, every single day. The difference isn't talent. It's not time. It's not luck. It's a system.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SOCIAL PROOF -->
+<section class="proof">
+  <div class="container">
+    <div class="eyebrow">What people are saying</div>
+    <h2 class="h2">Real results from busy people.</h2>
+    <div class="proof-grid">
+
+      <div class="proof-card">
+        <p class="quote">"I LOVE the 30-Minute Visibility System!! It genuinely changed how I see Threads, especially when it comes to engagement. Cody really understands this app and the algorithm and more importantly he knows how to skyrocket growth in 30 minutes a day. If you are building on Threads and feel like something is not clicking, Cody is the person to talk to!!!"</p>
+        <div class="attribution">
+          <img src="https://wkaqvzkwmiawacwwfxxy.supabase.co/storage/v1/object/public/uploads/sub-pages/hero-266fe754-8f5c-4520-b009-0ef1101d20c5-1775530124686.jpg" alt="Kira Goldberg" loading="lazy">
+          <div>
+            <div class="attr-name">Kira Goldberg</div>
+            <div class="attr-handle">@kiragoldberg_</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="proof-card">
+        <p class="quote">"What he's put together isn't theory. It's a documented pattern that actually compounds. The visibility pyramid, the conversation loop, the 5-5-5 structure — these aren't concepts he borrowed from someone else. They're observations he made, tested, and refined while working shifts and raising four boys. Simple enough to execute on a lunch break. Deep enough to actually work."</p>
+        <div class="attribution">
+          <img src="https://wkaqvzkwmiawacwwfxxy.supabase.co/storage/v1/object/public/uploads/sub-pages/hero-266fe754-8f5c-4520-b009-0ef1101d20c5-1775530226464.jpg" alt="Hunter Glassie" loading="lazy">
+          <div>
+            <div class="attr-name">Hunter Glassie</div>
+            <div class="attr-handle">Founder, Flourish Networking</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="proof-card">
+        <p class="quote">"Cody's 30-Minute Visibility System is legit. You can tell this wasn't built from theory — it came from actually doing the work. I connected with him when he was under 1,000 followers, putting out great content and getting insane reach. 5,000 followers later in like 30 days, here we are. If you're busy but serious about growing on Threads, I can't recommend him or this system enough."</p>
+        <div class="attribution">
+          <img src="https://wkaqvzkwmiawacwwfxxy.supabase.co/storage/v1/object/public/uploads/sub-pages/hero-266fe754-8f5c-4520-b009-0ef1101d20c5-1775786494931.jpg" alt="Ant Mancini" loading="lazy">
+          <div>
+            <div class="attr-name">Ant Mancini</div>
+            <div class="attr-handle">Founder, Followrs.store</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="proof-card">
+        <p class="quote">"Today has been about a month since I started using your guide and it completely changed my experience. I shifted from mostly posting to engaging in the comments and I started meeting people, making real connections. I've grown from 200 to over 1K in less than 4 weeks. As a dad who works 10–12h/day, I needed something sustainable and that's exactly what you created."</p>
+        <div class="attribution">
+          <img src="https://wkaqvzkwmiawacwwfxxy.supabase.co/storage/v1/object/public/uploads/sub-pages/hero-266fe754-8f5c-4520-b009-0ef1101d20c5-1776219104887.jpg" alt="Marcos Coppa" loading="lazy">
+          <div>
+            <div class="attr-name">Marcos Coppa</div>
+            <div class="attr-handle">Founder, Evolve Business</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="proof-card">
+        <p class="quote">"It's clear, well structured, and delivers exactly what's promised. What stands out most is how practical it is — it's been designed in a way that actually fits around a busy job and family life, which is rare. Cody has carved out a strong niche around replies, and it shows. This isn't just about posting content — it's a smart, actionable approach to building visibility that supports real business growth."</p>
+        <div class="attribution">
+          <img src="https://wkaqvzkwmiawacwwfxxy.supabase.co/storage/v1/object/public/uploads/sub-pages/hero-266fe754-8f5c-4520-b009-0ef1101d20c5-1776772609158.jpg" alt="Kathryn Stephenson" loading="lazy">
+          <div>
+            <div class="attr-name">Kathryn Stephenson</div>
+            <div class="attr-handle">@drkathrynstephenson</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="proof-card">
+        <p class="quote">"I've been building on Threads long enough to know what works. Cody's guide still gave me things worth using. The way he breaks down visibility before trust — that's the piece most people get backwards. If you're under 1K and your posts aren't landing, buy this. Run the system for 30 days. It works."</p>
+        <div class="attribution">
+          <img src="https://wkaqvzkwmiawacwwfxxy.supabase.co/storage/v1/object/public/uploads/sub-pages/hero-266fe754-8f5c-4520-b009-0ef1101d20c5-1781882587563.jpg" alt="Earl Treptau" loading="lazy">
+          <div>
+            <div class="attr-name">Earl Treptau</div>
+            <div class="attr-handle">@threads_whisperer</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- WHAT'S INSIDE -->
+<section class="offer">
+  <div class="container">
+    <div class="eyebrow">What's inside</div>
+    <h2 class="h2">Everything you get — total value $125, yours for $49.</h2>
+
+    <div style="margin-top: 40px;">
+
+      <div class="stack-item">
+        <div class="stack-num">01</div>
+        <div>
+          <div class="stack-title">The Lunch Break Business Threads Playbook (Core Guide)</div>
+          <div class="stack-desc">The full step-by-step system for building a real audience on Threads in 30 minutes a day — no viral luck, no ads, no posting 10x a day. The exact framework used to grow from zero while working a warehouse job and raising 4 boys. ($47 value)</div>
+        </div>
+      </div>
+
+      <div class="stack-item">
+        <div class="stack-num">02</div>
+        <div>
+          <div class="stack-title">The 14-Slot Daily Rotation</div>
+          <div class="stack-desc">Never stare at a blank screen again. The exact posting schedule — what to post, when to post it, and why — so every 30-minute window compounds instead of resets. ($27 value)</div>
+        </div>
+      </div>
+
+      <div class="stack-item">
+        <div class="stack-num">03</div>
+        <div>
+          <div class="stack-title">The 5-5-5 Engagement Plan</div>
+          <div class="stack-desc">The reply strategy that turns 15 minutes of engagement into new followers every single day. Simple, repeatable, and works on a lunch break. ($17 value)</div>
+        </div>
+      </div>
+
+      <div class="stack-item">
+        <div class="stack-num">04</div>
+        <div>
+          <div class="stack-title">The Proof Post Formula</div>
+          <div class="stack-desc">How to turn your own results into content that converts followers into buyers — without bragging, without faking it, and without a big audience. ($17 value)</div>
+        </div>
+      </div>
+
+      <div class="stack-item">
+        <div class="stack-num">05</div>
+        <div>
+          <div class="stack-title">The Content-to-Conversion Bridge</div>
+          <div class="stack-desc">The exact method for naturally connecting every post you write back to your product — so your audience knows what you sell without you hard-pitching every day. ($17 value)</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="price-line" style="margin-top: 48px;">$49 — one-time. <span class="under">No subscriptions. No hidden fees.</span></div>
+    <div class="btn-row">
+      <a href="https://followrs.store/realcodytye/the-30-minute-visibility-system?track=ZQqieuP0" class="btn btn-primary" target="_blank" rel="noopener">Give me The Playbook →</a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="container">
+    <div class="eyebrow">Questions</div>
+    <h2 class="h2">Before you buy.</h2>
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <div class="faq-q">What if I don't always have a full 30 minutes?</div>
+        <div class="faq-a">
+          <p>You have 30 minutes. You just might not have them all at once. 5 minutes in the bathroom. 10 minutes before you clock in. 15 minutes after the kids are asleep. It adds up fast.</p>
+          <p>30 minutes running this system beats two hours of random posting every time.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">I'm starting from zero. Will this actually work for me?</div>
+        <div class="faq-a">
+          <p>That's exactly where I started. No followers carried over from Instagram. No engagement groups. No follow-for-follow. I joined Threads in December 2025 and hit 10,000 followers by May 2026 starting from absolute zero.</p>
+          <p>The system doesn't require an existing audience. It builds one. Zero is just the starting line — not a disadvantage.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">I'm not in the business or marketing niche. Will this still work?</div>
+        <div class="faq-a">
+          <p>The system doesn't care what you talk about. Gardening. Home building. Faith. Anxiety. Software. Parenting. It works across all of it because growth on Threads isn't about your niche — it's about how you show up every day.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">How long before I start seeing results?</div>
+        <div class="faq-a">
+          <p>If you implement the system consistently, you'll see real follower growth within 30 days. People who follow this system are gaining 250+ followers a week.</p>
+          <p>You're not starting from scratch. You're starting from where I left off.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">What's your refund policy?</div>
+        <div class="faq-a">
+          <p>Because this is a digital product, all sales are final. But if you implement the system and feel stuck, reach out — DM me on Threads or shoot me an email. I'll help you figure out what's not clicking. I'm confident enough in this system that I'm not worried about that conversation.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="magnet">
+  <div class="container">
+    <div class="magnet-card">
+      <div class="eyebrow" style="color: var(--sage);">Built for busy working creators. Tested by a dad of four.</div>
+      <h3>Stop posting into the void.</h3>
+      <p>Same playbook used to hit 18,000+ followers as a full-time working dad. One-time payment. Instant access. All future updates free.</p>
+      <div class="btn-row" style="justify-content: center;">
+        <a href="https://followrs.store/realcodytye/the-30-minute-visibility-system?track=ZQqieuP0" class="btn btn-primary" target="_blank" rel="noopener">Get The Threads Playbook — $49 →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <span class="wm">Lunch Break Business<span class="dot">.</span></span>
+    <p>Built by <a href="https://www.threads.com/@realcodytye" target="_blank" rel="noopener">@realcodytye</a> · <a href="blog/index.html">Blog</a> · <a href="index.html">Home</a></p>
+    <p style="margin-top: 12px; opacity: 0.6;">© 2026 Lunch Break Business.</p>
+  </div>
+</footer>
+
+<script src="https://lzy.ist/track.js" data-world="Gk5OtjB4zTKg"></script>
+</body>
+</html>
