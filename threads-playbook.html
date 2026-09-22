@@ -8,6 +8,16 @@
 <link rel="stylesheet" href="style.css">
 <style>
 
+  /* ── BLEED OVERFLOW FIX ────────────────────────── */
+  /* clip horizontal scroll created by full-width bleed sections */
+  html, body { overflow-x: clip; }
+
+  /* prevent grid cells from blowing out past their track */
+  .problem-split > *,
+  .proof-grid > *,
+  .stack-grid > *,
+  .faq-split > * { min-width: 0; }
+
   /* ── BLEED SECTIONS ─────────────────────────────── */
   .bleed-ink   { background: var(--ink);  }
   .bleed-cream { background: var(--bg);   }
