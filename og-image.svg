@@ -22,8 +22,8 @@
   <text x="108" y="344" font-family="Georgia, 'Times New Roman', serif" font-size="76" fill="#F4EDE1" font-weight="700" text-rendering="optimizeLegibility">online offer</text>
 
   <!-- Highlighted phrase -->
-  <rect x="108" y="362" width="310" height="76" fill="#D89A2B" rx="4"/>
-  <text x="108" y="432" font-family="Georgia, 'Times New Roman', serif" font-size="76" fill="#1C1A17" font-weight="700" text-rendering="optimizeLegibility" dx="12">in the margins.</text>
+  <rect x="100" y="362" width="740" height="80" fill="#D89A2B" rx="4"/>
+  <text x="116" y="432" font-family="Georgia, 'Times New Roman', serif" font-size="76" fill="#1C1A17" font-weight="700" text-rendering="optimizeLegibility">in the margins.</text>
 
   <!-- Subline -->
   <text x="108" y="532" font-family="Georgia, 'Times New Roman', serif" font-size="22" fill="#F4EDE1" opacity="0.65" text-rendering="optimizeLegibility">30–60 minutes a day · No quitting your job · @realcodytye</text>
