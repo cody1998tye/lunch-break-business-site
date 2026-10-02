@@ -345,12 +345,55 @@
   }
   .final-cta .btn-row { justify-content: center; }
 
+  /* ── PEEK INSIDE ────────────────────────────────── */
+  .peek-bleed {
+    padding: 96px 0;
+    border-top: 1px solid rgba(0,0,0,0.06);
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+  }
+  .peek-sub {
+    font-size: 19px;
+    color: var(--muted);
+    margin-top: 12px;
+    margin-bottom: 0;
+    max-width: 560px;
+  }
+  .peek-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 20px;
+    margin-top: 48px;
+  }
+  .peek-page {
+    grid-column: span 2;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.10), 0 1px 4px rgba(0,0,0,0.06);
+    border: 1px solid rgba(0,0,0,0.07);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .peek-page:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 32px rgba(0,0,0,0.14), 0 2px 6px rgba(0,0,0,0.07);
+  }
+  .peek-page img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .peek-page:nth-child(4) { grid-column: 2 / span 2; }
+  .peek-page:nth-child(5) { grid-column: 4 / span 2; }
+
   /* ── RESPONSIVE ─────────────────────────────────── */
   @media (max-width: 900px) {
     .proof-grid { grid-template-columns: 1fr 1fr; }
     .stack-grid { grid-template-columns: 1fr; gap: 0; }
     .stack-item:nth-child(odd):last-child { grid-column: 1; max-width: 100%; }
     .offer-cta { flex-direction: column; align-items: flex-start; }
+    .peek-grid { grid-template-columns: repeat(4, 1fr); }
+    .peek-page { grid-column: span 2; }
+    .peek-page:nth-child(4) { grid-column: 1 / span 2; }
+    .peek-page:nth-child(5) { grid-column: 3 / span 2; }
   }
   @media (max-width: 700px) {
     .hero-bleed { padding: 64px 0 56px; }
@@ -364,6 +407,10 @@
     .stat-item:last-child { border-bottom: none; }
     .truth-bomb { font-size: 17px; padding: 20px 22px; }
     .price-now { font-size: 38px; }
+    .peek-bleed { padding: 64px 0; }
+    .peek-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+    .peek-page:nth-child(4),
+    .peek-page:nth-child(5) { grid-column: span 1; }
   }
 </style>
 </head>
@@ -515,6 +562,22 @@
         </div>
       </div>
 
+    </div>
+  </div>
+</section>
+
+<!-- PEEK INSIDE — cream bleed, 3+2 page preview grid -->
+<section class="peek-bleed bleed-cream">
+  <div class="container wide">
+    <div class="eyebrow">Inside the playbook</div>
+    <h2 class="h2">This is what you're getting.</h2>
+    <p class="peek-sub">Not a collection of tips. A documented system, built page by page from 18,000+ followers of real-world testing.</p>
+    <div class="peek-grid">
+      <div class="peek-page"><img src="images/playbook-preview/page-04.jpg" alt="The Two-Block System" loading="lazy"></div>
+      <div class="peek-page"><img src="images/playbook-preview/page-05.jpg" alt="The 5-5-5 Distribution Rule" loading="lazy"></div>
+      <div class="peek-page"><img src="images/playbook-preview/page-02.jpg" alt="Who This Is For" loading="lazy"></div>
+      <div class="peek-page"><img src="images/playbook-preview/page-mid-14.jpg" alt="What to Expect Week by Week" loading="lazy"></div>
+      <div class="peek-page"><img src="images/playbook-preview/page-03.jpg" alt="Why Most People Stay Invisible" loading="lazy"></div>
     </div>
   </div>
 </section>
