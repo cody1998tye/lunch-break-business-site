@@ -37,6 +37,14 @@ const server = http.createServer((req, res) => {
   const parsed = url.parse(req.url);
   let pathname = decodeURIComponent(parsed.pathname);
 
+  // Redirect *.html (non-index) to the clean URL
+  if (pathname.endsWith('.html') && !pathname.endsWith('/index.html') && pathname !== '/index.html') {
+    const clean = pathname.slice(0, -5) + '/';
+    res.writeHead(301, { Location: clean });
+    res.end();
+    return;
+  }
+
   if (pathname.endsWith('/')) pathname += 'index.html';
   const filePath = path.join(ROOT, pathname);
 

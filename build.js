@@ -26,7 +26,7 @@ const PUBLISHED_DIR = path.join(VAULT_ROOT, 'distribution', 'published');
 const FINISHED_DIR = path.join(VAULT_ROOT, 'production', 'finished');
 const BLOG_DIR = path.join(SITE_DIR, 'blog');
 
-const CTA_URL = 'https://followrs.store/realcodytye/lunch-break-business-starter-kit?t=45a16743f381';
+const CTA_URL = 'https://followrs.store/realcodytye/the-30-minute-visibility-system?track=ZQqieuP0';
 const SITE_TAG = 'lbb';
 const PUBLISHABLE_STATUSES = new Set(['live', 'scheduled']);
 
@@ -197,10 +197,11 @@ function niceDate(iso) {
 
 const NAV = (activePath) => `
 <nav class="nav">
-  <a href="${activePath === 'home' ? 'index.html' : '../index.html'}" class="nav-brand">Lunch Break Business<span class="dot">.</span></a>
+  <a href="${activePath === 'home' ? 'index.html' : activePath === 'post' ? '../../index.html' : '../index.html'}" class="nav-brand">Lunch Break Business<span class="dot">.</span></a>
   <div class="nav-links">
-    <a href="${activePath === 'blog-index' || activePath === 'post' ? 'index.html' : 'blog/index.html'}"${activePath === 'blog-index' ? ' class="active"' : ''}>Blog</a>
-    <a href="${activePath === 'post' ? '../index.html#starter-kit' : activePath === 'blog-index' ? '../index.html#starter-kit' : 'index.html#starter-kit'}">Starter Kit</a>
+    <a href="${activePath === 'blog-index' ? 'index.html' : activePath === 'post' ? '../' : 'blog/'}"${activePath === 'blog-index' ? ' class="active"' : ''}>Blog</a>
+    <a href="${activePath === 'post' ? '../../threads-playbook.html' : activePath === 'blog-index' ? '../threads-playbook.html' : 'threads-playbook.html'}">Threads Playbook</a>
+    <a href="https://realcodytye.kit.com/2db1511f0c" target="_blank" rel="noopener">16 Viral Post Templates</a>
   </div>
 </nav>`;
 
@@ -208,19 +209,38 @@ const FOOTER = (rel) => `
 <footer class="footer">
   <div class="container">
     <span class="wm">Lunch Break Business<span class="dot">.</span></span>
-    <p>Built by <a href="https://www.threads.com/@realcodytye" target="_blank" rel="noopener">@realcodytye</a> · <a href="${rel}blog/index.html">Blog</a> · <a href="${rel}index.html#starter-kit">Starter Kit</a></p>
+    <p>Built by <a href="https://www.threads.com/@realcodytye" target="_blank" rel="noopener">@realcodytye</a> · <a href="${rel}blog/index.html">Blog</a> · <a href="https://realcodytye.kit.com/2db1511f0c" target="_blank" rel="noopener">16 Viral Post Templates</a></p>
     <p style="margin-top: 12px; opacity: 0.6;">© 2026 Lunch Break Business.</p>
   </div>
 </footer>`;
 
-function postPage({ title, dateNice, bodyHtml }) {
+function postPage({ title, dateNice, bodyHtml, slug, pull }) {
+  const url = `https://realcodytye.com/blog/${slug}/`;
+  const desc = escapeHtml(pull || title);
   return `<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>${escapeHtml(title)} — Lunch Break Business</title>
-<link rel="stylesheet" href="../style.css">
+<meta name="description" content="${desc}">
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Lunch Break Business">
+<meta property="og:url" content="${url}">
+<meta property="og:title" content="${escapeHtml(title)} — Lunch Break Business">
+<meta property="og:description" content="${desc}">
+<meta property="og:image" content="https://realcodytye.com/og-image-v2.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@realcodytye">
+<meta name="twitter:title" content="${escapeHtml(title)} — Lunch Break Business">
+<meta name="twitter:description" content="${desc}">
+<meta name="twitter:image" content="https://realcodytye.com/og-image-v2.png">
+<link rel="canonical" href="${url}">
+<link rel="stylesheet" href="../../style.css">
 </head>
 <body>
 ${NAV('post')}
@@ -233,20 +253,34 @@ ${bodyHtml}
 
   <div class="essay-cta">
     <h3>Ready to build yours?</h3>
-    <p>Under $100. Skool community + monthly live calls. Built for the person doing it in 30–60 minutes a day.</p>
-    <a href="${CTA_URL}" class="btn btn-primary" target="_blank" rel="noopener">Get the Starter Kit<span class="dot">.</span></a>
+    <p>The exact playbook that took a working dad from 0 to 18,000+ followers in 30 minutes a day. No viral luck. Just a system that fits your schedule.</p>
+    <a href="${CTA_URL}" class="btn btn-primary" target="_blank" rel="noopener">Get the Threads Playbook<span class="dot">.</span></a>
   </div>
 
-  <a href="index.html" class="essay-back">← All posts</a>
+  <a href="../" class="essay-back">← All posts</a>
 </article>
-${FOOTER('../')}
+${FOOTER('../../')}
 </body>
+</html>`;
+}
+
+function redirectPage(cleanUrl) {
+  return `<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="refresh" content="0;url=${cleanUrl}">
+<link rel="canonical" href="${cleanUrl}">
+<title>Redirecting…</title>
+<script>window.location.replace("${cleanUrl}");</script>
+</head>
+<body></body>
 </html>`;
 }
 
 function archivePage(posts) {
   const cards = posts.length ? posts.map(p => `
-    <a href="${p.slug}.html" class="essay-card">
+    <a href="${p.slug}/" class="essay-card">
       <div class="meta">${p.dateNice}</div>
       <div class="title">${escapeHtml(p.title)}</div>
       <div class="pull">${escapeHtml(p.pull)}</div>
@@ -259,6 +293,22 @@ function archivePage(posts) {
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Blog — Lunch Break Business</title>
+<meta name="description" content="Everything written about building a business in the margins, one post at a time.">
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Lunch Break Business">
+<meta property="og:url" content="https://realcodytye.com/blog/">
+<meta property="og:title" content="Blog — Lunch Break Business">
+<meta property="og:description" content="Everything written about building a business in the margins, one post at a time.">
+<meta property="og:image" content="https://realcodytye.com/og-image-v2.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@realcodytye">
+<meta name="twitter:title" content="Blog — Lunch Break Business">
+<meta name="twitter:description" content="Everything written about building a business in the margins, one post at a time.">
+<meta name="twitter:image" content="https://realcodytye.com/og-image-v2.png">
 <link rel="stylesheet" href="../style.css">
 </head>
 <body>
@@ -333,7 +383,10 @@ function main() {
     const dateNice = niceDate(dateISO);
 
     posts.push({ slug, dateISO, dateNice, title, pull });
-    fs.writeFileSync(path.join(BLOG_DIR, `${slug}.html`), postPage({ title, dateNice, bodyHtml }));
+    const postDir = path.join(BLOG_DIR, slug);
+    if (!fs.existsSync(postDir)) fs.mkdirSync(postDir, { recursive: true });
+    fs.writeFileSync(path.join(postDir, 'index.html'), postPage({ title, dateNice, bodyHtml, slug, pull }));
+    fs.writeFileSync(path.join(BLOG_DIR, `${slug}.html`), redirectPage(`/blog/${slug}/`));
   }
 
   posts.sort((a, b) => (a.dateISO < b.dateISO ? 1 : -1));
