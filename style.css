@@ -1,16 +1,16 @@
 /* Lunch Break Business — site stylesheet */
 
-@import url('https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;1,7..72,400&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400;1,7..72,600&family=Courier+Prime:ital@0;1&display=swap');
 
 :root {
-  --bg:     #F4EDE1;
-  --card:   #FFF8EC;
-  --ink:    #1C1A17;
-  --muted:  #8A7860;
-  --accent: #D89A2B;
-  --sage:   #6B7B5A;
+  --bg:          #F5EDD8;
+  --card:        #FBF6EA;
+  --ink:         #1D1912;
+  --muted:       #6B6050;
+  --accent:      #C47B2F;
   --font-display: 'Literata', Georgia, serif;
-  --font-body:    'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body:    'Literata', Georgia, serif;
+  --font-label:   'Courier Prime', Courier, monospace;
   --max-w: 720px;
 }
 
@@ -72,8 +72,9 @@ a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--
 a:hover { text-decoration-thickness: 2px; }
 
 .eyebrow {
+  font-family: var(--font-label);
   font-size: 11px;
-  font-weight: 700;
+  font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 0.16em;
   color: var(--muted);
@@ -123,9 +124,9 @@ a:hover { text-decoration-thickness: 2px; }
   padding: 0 4px;
   background-image: linear-gradient(120deg,
     transparent 0%,
-    rgba(216, 154, 43, 0.5) 12%,
-    rgba(216, 154, 43, 0.75) 55%,
-    rgba(216, 154, 43, 0.5) 90%,
+    rgba(196, 123, 47, 0.5) 12%,
+    rgba(196, 123, 47, 0.75) 55%,
+    rgba(196, 123, 47, 0.5) 90%,
     transparent 100%);
   background-repeat: no-repeat;
   background-size: 100% 62%;
@@ -149,7 +150,7 @@ a:hover { text-decoration-thickness: 2px; }
 .btn {
   display: inline-block;
   padding: 16px 28px;
-  border-radius: 8px;
+  border-radius: 0;
   font-family: var(--font-body);
   font-weight: 600;
   font-size: 16px;
@@ -172,6 +173,7 @@ a:hover { text-decoration-thickness: 2px; }
   background: transparent;
   color: var(--ink);
   border: 1.5px solid var(--ink);
+  border-radius: 0;
   padding: 14.5px 26.5px;
 }
 .btn-secondary:hover {
@@ -226,8 +228,9 @@ a:hover { text-decoration-thickness: 2px; }
 .featured {
   background: var(--card);
   border: 1px solid rgba(0,0,0,0.06);
-  border-radius: 14px;
-  padding: 40px 44px 44px;
+  border-left: 5px solid var(--accent);
+  border-radius: 0;
+  padding: 40px 44px 44px 40px;
   margin-top: 24px;
   transition: transform 0.15s ease, box-shadow 0.15s ease;
   display: block;
@@ -236,14 +239,15 @@ a:hover { text-decoration-thickness: 2px; }
 }
 .featured:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(28, 26, 23, 0.08);
+  box-shadow: 0 8px 24px rgba(29, 25, 18, 0.08);
 }
 .featured .featured-eyebrow {
+  font-family: var(--font-label);
   font-size: 11px;
-  font-weight: 700;
+  font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 0.14em;
-  color: var(--sage);
+  color: var(--muted);
   margin-bottom: 14px;
 }
 .featured .featured-title {
@@ -291,7 +295,8 @@ a:hover { text-decoration-thickness: 2px; }
   padding: 24px 26px;
   background: rgba(255, 248, 236, 0.04);
   border: 1px solid rgba(255, 248, 236, 0.08);
-  border-radius: 10px;
+  border-left: 4px solid var(--accent);
+  border-radius: 0;
 }
 .offer .module-num {
   font-family: var(--font-display);
@@ -338,7 +343,7 @@ a:hover { text-decoration-thickness: 2px; }
 .magnet-card {
   background: var(--card);
   border: 1px dashed var(--muted);
-  border-radius: 12px;
+  border-radius: 0;
   padding: 40px 44px;
   text-align: center;
 }
@@ -367,7 +372,7 @@ a:hover { text-decoration-thickness: 2px; }
   min-width: 220px;
   padding: 14px 18px;
   border: 1.5px solid var(--muted);
-  border-radius: 8px;
+  border-radius: 0;
   background: var(--bg);
   color: var(--ink);
   font-family: var(--font-body);
@@ -525,7 +530,8 @@ a:hover { text-decoration-thickness: 2px; }
   padding: 40px 44px;
   background: var(--card);
   border: 1px solid rgba(0,0,0,0.06);
-  border-radius: 12px;
+  border-left: 5px solid var(--accent);
+  border-radius: 0;
   text-align: center;
 }
 .essay-cta h3 {
