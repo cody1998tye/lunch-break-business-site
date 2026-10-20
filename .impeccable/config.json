@@ -2,6 +2,49 @@
   "detector": {
     "ignoreRules": [],
     "ignoreFiles": [],
-    "ignoreValues": []
+    "ignoreValues": [
+      {
+        "rule": "design-system-font-size",
+        "value": "42px",
+        "createdAt": "2026-10-20T19:43:23.153Z",
+        "reason": "Price display — intentional sales page size"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "17px",
+        "createdAt": "2026-10-20T19:43:29.057Z",
+        "reason": "Sales page body and strikethrough price — intentional"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "11px",
+        "createdAt": "2026-10-20T19:43:29.213Z",
+        "reason": "Fine print label — intentional"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "28px",
+        "createdAt": "2026-10-20T19:43:29.370Z",
+        "reason": "Stat numbers and FAQ questions — intentional"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "26px",
+        "createdAt": "2026-10-20T19:43:29.522Z",
+        "reason": "Truth-bomb callout — intentional"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "19px",
+        "createdAt": "2026-10-20T19:43:29.678Z",
+        "reason": "Problem body and peek sub — intentional"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "#8b1815",
+        "createdAt": "2026-10-20T19:43:29.842Z",
+        "reason": "Darkened red CTA hover state — intentional"
+      }
+    ]
   }
 }

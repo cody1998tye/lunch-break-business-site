@@ -24,14 +24,9 @@
 <link rel="stylesheet" href="../style.css">
 <style>
 
-  /* ── BLEED OVERFLOW FIX ────────────────────────── */
-  /* clip horizontal scroll created by full-width bleed sections */
   html, body { overflow-x: clip; }
-
-  /* ── NO NAV ON SALES PAGE ───────────────────────── */
   .nav { display: none; }
 
-  /* prevent grid cells from blowing out past their track */
   .problem-split > *,
   .proof-grid > *,
   .stack-grid > *,
@@ -43,28 +38,26 @@
   .bleed-card  { background: var(--card); }
 
   /* ── HERO BLEED ─────────────────────────────────── */
-  .hero-bleed {
-    padding: 100px 0 88px;
-  }
-  .hero-bleed .eyebrow {
-    color: var(--accent);
-  }
+  .hero-bleed { padding: 100px 0 88px; }
+  .hero-bleed .eyebrow { color: var(--mute-ink); }
   .hero-bleed .h1 {
     color: var(--bg);
     max-width: 840px;
     margin-bottom: 24px;
   }
   .hero-bleed .hero-sub {
-    color: rgba(244,237,225,0.75);
+    color: rgba(243,239,228,0.75);
     max-width: 580px;
     margin-top: 0;
+    font-variation-settings: "wdth" 100;
+    font-weight: 400;
   }
   .hero-bleed .swipe {
     background-image: linear-gradient(120deg,
       transparent 0%,
-      rgba(196,123,47,0.55) 12%,
-      rgba(196,123,47,0.8) 55%,
-      rgba(196,123,47,0.55) 90%,
+      rgba(176,32,27,0.4) 12%,
+      rgba(176,32,27,0.65) 55%,
+      rgba(176,32,27,0.4) 90%,
       transparent 100%);
   }
   .price-strip {
@@ -75,38 +68,39 @@
     margin-bottom: 6px;
   }
   .price-now {
-    font-family: var(--font-display);
+    font-family: var(--font-label);
     font-size: 42px;
-    color: var(--accent);
+    font-weight: 700;
+    color: var(--bg);
     line-height: 1;
   }
   .price-was {
+    font-family: var(--font-label);
     font-size: 17px;
-    color: rgba(244,237,225,0.4);
+    color: rgba(243,239,228,0.4);
     text-decoration: line-through;
   }
   .price-note {
+    font-family: var(--font-label);
     font-size: 11px;
-    color: rgba(244,237,225,0.45);
+    color: rgba(243,239,228,0.45);
     margin-bottom: 32px;
     letter-spacing: 0.04em;
   }
-  .btn-amber {
+  .btn-cta {
     background: var(--accent);
-    color: var(--ink);
+    color: var(--on-ink);
     padding: 18px 36px;
-    font-size: 17px;
-    font-weight: 700;
   }
-  .btn-amber:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 6px 16px rgba(196,123,47,0.35);
+  .btn-cta:hover {
+    background: #8B1815;
+    transform: translateY(-2px);
     text-decoration: none;
   }
 
   /* ── STAT STRIP ─────────────────────────────────── */
   .stat-strip {
-    background: var(--accent);
+    background: var(--bg);
     padding: 24px 0;
     border-top: none;
   }
@@ -118,28 +112,30 @@
   .stat-item {
     text-align: center;
     padding: 0 56px;
-    border-right: 1px solid rgba(28,26,23,0.18);
+    border-right: 1px solid var(--rule);
   }
   .stat-item:last-child { border-right: none; }
   .stat-num {
-    font-family: var(--font-display);
+    font-family: var(--font-label);
     font-size: 28px;
+    font-weight: 700;
     color: var(--ink);
     line-height: 1;
     margin-bottom: 4px;
   }
   .stat-label {
+    font-family: var(--font-label);
     font-size: 11px;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.14em;
-    color: rgba(28,26,23,0.65);
+    color: var(--muted);
   }
 
   /* ── PROBLEM BLEED ──────────────────────────────── */
   .problem-bleed {
     padding: 96px 0;
-    border-bottom: 1px solid rgba(0,0,0,0.06);
+    border-bottom: 1px solid var(--rule);
   }
   .problem-split {
     display: grid;
@@ -151,6 +147,8 @@
   .problem-left .h2 { margin-bottom: 0; }
   .problem-body {
     font-size: 19px;
+    font-variation-settings: "wdth" 100;
+    font-weight: 400;
     line-height: 1.7;
     color: var(--ink);
   }
@@ -160,19 +158,21 @@
     margin: 32px 0;
     padding: 28px 32px;
     border-left: 5px solid var(--accent);
-    background: rgba(196,123,47,0.07);
-    border-radius: 0;
+    background: rgba(176,32,27,0.07);
     font-family: var(--font-display);
+    font-variation-settings: "wdth" 70;
+    font-weight: 850;
     font-size: 26px;
-    line-height: 1.4;
+    text-transform: uppercase;
+    line-height: 1.05;
     color: var(--ink);
   }
 
   /* ── TESTIMONIALS BLEED ─────────────────────────── */
   .proof-bleed {
     padding: 96px 0;
-    border-top: 1px solid rgba(0,0,0,0.06);
-    border-bottom: 1px solid rgba(0,0,0,0.06);
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
   }
   .proof-grid {
     display: grid;
@@ -182,15 +182,16 @@
   }
   .proof-card {
     background: var(--bg);
-    border: 1px solid rgba(0,0,0,0.06);
+    border: 1px solid var(--rule);
     border-left: 5px solid var(--accent);
-    border-radius: 0;
     padding: 28px 28px 24px;
     display: flex;
     flex-direction: column;
   }
   .proof-card .quote {
     font-size: 17px;
+    font-variation-settings: "wdth" 100;
+    font-weight: 400;
     line-height: 1.65;
     color: var(--ink);
     margin-bottom: 20px;
@@ -200,7 +201,7 @@
     display: flex;
     align-items: center;
     gap: 10px;
-    border-top: 1px solid rgba(0,0,0,0.06);
+    border-top: 1px solid var(--rule);
     padding-top: 16px;
   }
   .proof-card .attribution img {
@@ -211,6 +212,7 @@
     flex-shrink: 0;
   }
   .proof-card .attr-name {
+    font-family: var(--font-label);
     font-size: 11px;
     font-weight: 700;
     text-transform: uppercase;
@@ -218,15 +220,14 @@
     color: var(--ink);
   }
   .proof-card .attr-handle {
+    font-family: var(--font-label);
     font-size: 11px;
     color: var(--muted);
   }
 
   /* ── OFFER STACK BLEED ──────────────────────────── */
-  .offer-bleed {
-    padding: 96px 0 88px;
-  }
-  .offer-bleed .eyebrow { color: rgba(244,237,225,0.5); }
+  .offer-bleed { padding: 96px 0 88px; }
+  .offer-bleed .eyebrow { color: var(--mute-ink); }
   .offer-bleed .h2 { color: var(--bg); }
   .stack-grid {
     display: grid;
@@ -238,7 +239,7 @@
     display: flex;
     gap: 20px;
     padding: 28px 0;
-    border-bottom: 1px solid rgba(255,248,236,0.07);
+    border-bottom: 1px solid rgba(243,239,228,0.1);
     align-items: flex-start;
   }
   .stack-item:nth-child(odd):last-child {
@@ -246,46 +247,55 @@
     max-width: calc(50% - 28px);
   }
   .stack-num {
-    font-family: var(--font-display);
-    font-size: 28px;
-    color: var(--accent);
-    line-height: 1;
+    font-family: var(--font-label);
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--bg);
+    text-transform: uppercase;
+    letter-spacing: .06em;
     min-width: 36px;
-    padding-top: 4px;
+    padding-top: 6px;
     flex-shrink: 0;
   }
   .stack-title {
     font-family: var(--font-display);
+    font-variation-settings: "wdth" 70;
+    font-weight: 850;
     font-size: 26px;
-    color: var(--bg);
+    text-transform: uppercase;
+    color: var(--on-ink);
     margin-bottom: 8px;
-    line-height: 1.2;
+    line-height: 1.05;
   }
   .stack-desc {
     font-size: 17px;
-    color: rgba(244,237,225,0.6);
+    font-variation-settings: "wdth" 100;
+    font-weight: 400;
+    color: rgba(243,239,228,0.6);
     line-height: 1.6;
   }
   .offer-cta {
     margin-top: 64px;
     padding-top: 48px;
-    border-top: 1px solid rgba(255,248,236,0.1);
+    border-top: 1px solid rgba(243,239,228,0.1);
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 32px;
   }
   .offer-cta-left .price-line {
-    font-family: var(--font-display);
+    font-family: var(--font-label);
     font-size: 42px;
+    font-weight: 700;
     color: var(--bg);
     line-height: 1;
     margin-bottom: 8px;
   }
   .offer-cta-left .price-line .under { color: var(--accent); }
   .offer-cta-left p {
+    font-family: var(--font-label);
     font-size: 11px;
-    color: rgba(244,237,225,0.45);
+    color: rgba(243,239,228,0.45);
     letter-spacing: 0.04em;
     text-transform: uppercase;
   }
@@ -293,7 +303,7 @@
   /* ── FAQ BLEED ──────────────────────────────────── */
   .faq-bleed {
     padding: 96px 0;
-    border-top: 1px solid rgba(0,0,0,0.06);
+    border-top: 1px solid var(--rule);
   }
   .faq-split {
     display: grid;
@@ -302,26 +312,28 @@
     margin-top: 48px;
     align-items: start;
   }
-  .faq-label {
-    position: sticky;
-    top: 32px;
-  }
+  .faq-label { position: sticky; top: 32px; }
   .faq-label .eyebrow { margin-bottom: 12px; }
-  .faq-label .h2 { font-size: 42px; margin-bottom: 0; }
-  .faq-list { border-top: 1px solid rgba(0,0,0,0.08); }
+  .faq-label .h2 { margin-bottom: 0; }
+  .faq-list { border-top: 1px solid var(--rule); }
   .faq-item {
     padding: 32px 0;
-    border-bottom: 1px solid rgba(0,0,0,0.08);
+    border-bottom: 1px solid var(--rule);
   }
   .faq-q {
     font-family: var(--font-display);
+    font-variation-settings: "wdth" 70;
+    font-weight: 850;
     font-size: 28px;
+    text-transform: uppercase;
     color: var(--ink);
     margin-bottom: 16px;
-    line-height: 1.2;
+    line-height: 1.02;
   }
   .faq-a {
     font-size: 17px;
+    font-variation-settings: "wdth" 100;
+    font-weight: 400;
     color: var(--ink);
     line-height: 1.7;
   }
@@ -333,17 +345,17 @@
     padding: 112px 0;
     text-align: center;
   }
-  .final-cta .eyebrow { color: rgba(244,237,225,0.45); }
+  .final-cta .eyebrow { color: var(--mute-ink); }
   .final-cta .h2 {
     color: var(--bg);
-    font-size: 56px;
     max-width: 680px;
     margin: 0 auto 24px;
-    line-height: 1.05;
   }
   .final-cta p {
-    color: rgba(244,237,225,0.65);
+    color: rgba(243,239,228,0.65);
     font-size: 17px;
+    font-variation-settings: "wdth" 100;
+    font-weight: 400;
     max-width: 480px;
     margin: 0 auto 40px;
     line-height: 1.65;
@@ -353,11 +365,13 @@
   /* ── PEEK INSIDE ────────────────────────────────── */
   .peek-bleed {
     padding: 96px 0;
-    border-top: 1px solid rgba(0,0,0,0.06);
-    border-bottom: 1px solid rgba(0,0,0,0.06);
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
   }
   .peek-sub {
     font-size: 19px;
+    font-variation-settings: "wdth" 100;
+    font-weight: 400;
     color: var(--muted);
     margin-top: 12px;
     margin-bottom: 0;
@@ -371,21 +385,16 @@
   }
   .peek-page {
     grid-column: span 2;
-    border-radius: 0;
     overflow: hidden;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.10), 0 1px 4px rgba(0,0,0,0.06);
-    border: 1px solid rgba(0,0,0,0.07);
+    box-shadow: 0 4px 20px rgba(18,18,18,0.12), 0 1px 4px rgba(18,18,18,0.08);
+    border: 1px solid var(--rule);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
   }
   .peek-page:hover {
     transform: translateY(-4px);
-    box-shadow: 0 10px 32px rgba(0,0,0,0.14), 0 2px 6px rgba(0,0,0,0.07);
+    box-shadow: 0 10px 32px rgba(18,18,18,0.18), 0 2px 6px rgba(18,18,18,0.1);
   }
-  .peek-page img {
-    width: 100%;
-    height: auto;
-    display: block;
-  }
+  .peek-page img { width: 100%; height: auto; display: block; }
   .peek-page:nth-child(4) { grid-column: 2 / span 2; }
   .peek-page:nth-child(5) { grid-column: 4 / span 2; }
 
@@ -406,11 +415,10 @@
     .proof-grid { grid-template-columns: 1fr; }
     .faq-split { grid-template-columns: 1fr; gap: 0; }
     .faq-label { position: static; margin-bottom: 40px; }
-    .final-cta .h2 { font-size: 38px; }
     .stat-row { flex-wrap: wrap; gap: 0; }
-    .stat-item { padding: 16px 32px; border-right: none; border-bottom: 1px solid rgba(28,26,23,0.18); width: 100%; }
+    .stat-item { padding: 16px 32px; border-right: none; border-bottom: 1px solid var(--rule); width: 100%; }
     .stat-item:last-child { border-bottom: none; }
-    .truth-bomb { font-size: 17px; padding: 20px 22px; }
+    .truth-bomb { font-size: 20px; padding: 20px 22px; }
     .price-now { font-size: 38px; }
     .peek-bleed { padding: 64px 0; }
     .peek-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
@@ -445,7 +453,7 @@
     </div>
     <p class="price-note">One-time payment · Instant download · Lifetime access · All future updates free</p>
     <div class="btn-row">
-      <a href="https://followrs.store/realcodytye/the-30-minute-visibility-system?track=ZQqieuP0" class="btn btn-amber" target="_blank" rel="noopener">Give me The Playbook →</a>
+      <a href="https://followrs.store/realcodytye/the-30-minute-visibility-system?track=ZQqieuP0" class="btn btn-cta" target="_blank" rel="noopener">Give me The Playbook →</a>
     </div>
   </div>
 </header>
@@ -642,7 +650,7 @@
         <div class="price-line">$27<span class="under">.</span></div>
         <p>ONE-TIME · INSTANT ACCESS · ALL FUTURE UPDATES FREE</p>
       </div>
-      <a href="https://followrs.store/realcodytye/the-30-minute-visibility-system?track=ZQqieuP0" class="btn btn-amber" target="_blank" rel="noopener">Give me The Playbook →</a>
+      <a href="https://followrs.store/realcodytye/the-30-minute-visibility-system?track=ZQqieuP0" class="btn btn-cta" target="_blank" rel="noopener">Give me The Playbook →</a>
     </div>
   </div>
 </section>
@@ -707,7 +715,7 @@
     <h2 class="h2">Stop posting into the void.</h2>
     <p>Same playbook used to hit 18,000+ followers as a full-time working dad. One-time payment. Instant access. All future updates free.</p>
     <div class="btn-row">
-      <a href="https://followrs.store/realcodytye/the-30-minute-visibility-system?track=ZQqieuP0" class="btn btn-amber" target="_blank" rel="noopener">Get The Threads Playbook — $27 →</a>
+      <a href="https://followrs.store/realcodytye/the-30-minute-visibility-system?track=ZQqieuP0" class="btn btn-cta" target="_blank" rel="noopener">Get The Threads Playbook — $27 →</a>
     </div>
   </div>
 </section>
