@@ -11,6 +11,13 @@ colors:
   on-ink: "#F3EFE4"
   mute-ink: "#B9B3A3"
   rule: "rgba(18,18,18,.18)"
+  hover-black: "#000"
+  shadow-warm-sm: "rgba(60,45,0,.12)"
+  shadow-warm-md: "rgba(60,45,0,.35)"
+  shadow-warm-lg: "rgba(60,45,0,.4)"
+  shadow-warm-rack-near: "rgba(60,45,0,.15)"
+  shadow-warm-rack-far: "rgba(60,45,0,.45)"
+  punch-hole: "rgba(0,0,0,.6)"
 typography:
   display:
     fontFamily: "Archivo"
@@ -57,6 +64,72 @@ typography:
     fontFamily: "IBM Plex Mono"
     fontSize: "14px"
     fontWeight: 500
+  fine:
+    fontFamily: "IBM Plex Mono"
+    fontSize: "13px"
+    fontWeight: 500
+  card-label:
+    fontFamily: "IBM Plex Mono"
+    fontSize: "15px"
+    fontWeight: 700
+  small-body:
+    fontFamily: "Archivo"
+    fontVariationSettings: '"wdth" 100'
+    fontSize: "16px"
+    fontWeight: 400
+    lineHeight: 1.55
+  subhead:
+    fontFamily: "Archivo"
+    fontVariationSettings: '"wdth" 70'
+    fontSize: "24px"
+    fontWeight: 850
+    lineHeight: 1.1
+    textTransform: "uppercase"
+  essay-title:
+    fontFamily: "Archivo"
+    fontVariationSettings: '"wdth" 62'
+    fontSize: "56px"
+    fontWeight: 850
+    lineHeight: 0.92
+    textTransform: "uppercase"
+  stat:
+    fontFamily: "Archivo"
+    fontVariationSettings: '"wdth" 62'
+    fontSize: "clamp(2.6rem, 6vw, 3.6rem)"
+    fontWeight: 900
+    lineHeight: 0.9
+  turn:
+    fontFamily: "Archivo"
+    fontVariationSettings: '"wdth" 70'
+    fontSize: "clamp(1.7rem, 3.4vw, 2.4rem)"
+    fontWeight: 850
+    lineHeight: 1.02
+    textTransform: "uppercase"
+  stub-item:
+    fontFamily: "Archivo"
+    fontVariationSettings: '"wdth" 72'
+    fontSize: "21px"
+    fontWeight: 850
+    textTransform: "uppercase"
+  stub-total:
+    fontFamily: "Archivo"
+    fontVariationSettings: '"wdth" 62'
+    fontSize: "clamp(2.2rem, 5vw, 3rem)"
+    fontWeight: 900
+    lineHeight: 1
+  faq-question:
+    fontFamily: "Archivo"
+    fontVariationSettings: '"wdth" 80'
+    fontSize: "clamp(21px, 2.4vw, 27px)"
+    fontWeight: 800
+    lineHeight: 1.15
+  card-head:
+    fontFamily: "Archivo"
+    fontVariationSettings: '"wdth" 62'
+    fontSize: "40px"
+    fontWeight: 900
+    lineHeight: 0.9
+    textTransform: "uppercase"
   button:
     fontFamily: "Archivo"
     fontVariationSettings: '"wdth" 85'
@@ -79,6 +152,7 @@ spacing:
 rounded:
   sm: "4px"
   card: "3px"
+  notch: "22px"
 components:
   button-primary:
     backgroundColor: "{colors.ink}"

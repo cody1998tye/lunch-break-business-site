@@ -44,6 +44,24 @@
         "value": "#8b1815",
         "createdAt": "2026-10-20T19:43:29.842Z",
         "reason": "Darkened red CTA hover state — intentional"
+      },
+      {
+        "rule": "side-tab",
+        "value": "*",
+        "files": [
+          "style.css"
+        ],
+        "createdAt": "2026-10-20T20:22:04.328Z",
+        "reason": "Column divider between .block siblings — functional layout separator, not a card decoration"
+      },
+      {
+        "rule": "border-accent-on-rounded",
+        "value": "*",
+        "files": [
+          "style.css"
+        ],
+        "createdAt": "2026-10-20T20:22:06.960Z",
+        "reason": "Top-border rule marks sections with border-radius:0 — flat element, not a rounded card"
       }
     ]
   }
