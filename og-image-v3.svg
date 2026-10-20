@@ -23,19 +23,19 @@
   <text x="1104" y="114" font-family="'DejaVu Sans Mono', monospace" font-size="12" font-weight="700" fill="#F3CF2B" text-anchor="end" letter-spacing="2">PAY PERIOD: 30 DAYS</text>
 
   <!-- Headline line 1 -->
-  <text x="96" y="234" font-family="'DejaVu Sans Condensed', 'Arial Narrow', sans-serif" font-size="92" font-weight="700" fill="#161615">Build your first</text>
+  <text x="96" y="210" font-family="'DejaVu Sans Condensed', 'Arial Narrow', sans-serif" font-size="56" font-weight="700" fill="#161615">A Lunch Break Business</text>
 
   <!-- Headline line 2 -->
-  <text x="96" y="334" font-family="'DejaVu Sans Condensed', 'Arial Narrow', sans-serif" font-size="92" font-weight="700" fill="#161615">online offer</text>
+  <text x="96" y="278" font-family="'DejaVu Sans Condensed', 'Arial Narrow', sans-serif" font-size="56" font-weight="700" fill="#161615">is built in</text>
 
   <!-- Red highlight block + line 3 -->
-  <rect x="88" y="352" width="690" height="88" fill="#B0201B"/>
-  <text x="104" y="424" font-family="'DejaVu Sans Condensed', 'Arial Narrow', sans-serif" font-size="92" font-weight="700" fill="#FBF8EF">in the margins.</text>
+  <rect x="88" y="292" width="370" height="62" fill="#B0201B"/>
+  <text x="104" y="344" font-family="'DejaVu Sans Condensed', 'Arial Narrow', sans-serif" font-size="56" font-weight="700" fill="#FBF8EF">the gaps.</text>
 
   <!-- Footer rule -->
-  <rect x="96" y="480" width="1008" height="2" fill="#161615" opacity="0.2"/>
+  <rect x="96" y="476" width="1008" height="2" fill="#161615" opacity="0.2"/>
 
   <!-- Footer mono text -->
-  <text x="96" y="526" font-family="'DejaVu Sans Mono', monospace" font-size="17" font-weight="500" fill="#3A3524">30 MIN/DAY  ·  NO QUITTING YOUR JOB  ·  @realcodytye</text>
+  <text x="96" y="522" font-family="'DejaVu Sans Mono', monospace" font-size="17" font-weight="500" fill="#3A3524">30 MIN/DAY  ·  NO QUITTING YOUR JOB  ·  @realcodytye</text>
 
 </svg>
