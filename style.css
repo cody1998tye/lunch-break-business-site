@@ -986,7 +986,7 @@ table.punches {
   scroll-snap-type: x mandatory;
   scrollbar-color: var(--ink) transparent;
 }
-.rack figure { margin: 0; flex: 0 0 min(72vw, 300px); scroll-snap-align: start; }
+.rack figure { margin: 0; flex: 0 0 min(44vw, 220px); scroll-snap-align: start; }
 .rack img {
   border-radius: 3px;
   box-shadow: 0 2px 3px rgba(60,45,0,.15), 0 14px 30px -14px rgba(60,45,0,.45);
