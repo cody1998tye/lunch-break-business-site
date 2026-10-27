@@ -988,6 +988,9 @@ table.punches {
 }
 .rack figure { margin: 0; flex: 0 0 min(44vw, 220px); scroll-snap-align: start; }
 .rack img {
+  display: block;
+  width: 100%;
+  height: auto;
   border-radius: 3px;
   box-shadow: 0 2px 3px rgba(60,45,0,.15), 0 14px 30px -14px rgba(60,45,0,.45);
   background: var(--card);
@@ -995,6 +998,24 @@ table.punches {
 .rack figure:nth-child(odd) img { rotate: -1deg; }
 .rack figure:nth-child(even) img { rotate: .8deg; }
 .rack figcaption { font-family: var(--font-label); font-size: 12px; margin-top: var(--s4); color: var(--muted); }
+
+/* ── INSIDE LIST ─────────────────────────────────── */
+.inside-list {
+  list-style: none;
+  padding: 0;
+  margin: var(--s7) 0 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: var(--s4);
+}
+.inside-list li {
+  font-family: var(--font-label);
+  font-size: 14px;
+  color: var(--ink);
+  padding: var(--s4) var(--s5);
+  background: var(--card);
+  border-radius: 4px;
+}
 
 /* ── PAY STUB (pricing block) ────────────────────── */
 .stub {
