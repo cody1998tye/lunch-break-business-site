@@ -42,7 +42,7 @@
     <a href="blog/">Blog</a>
     <a href="threads-playbook/">Threads Playbook</a>
     <a href="lunch-break-launch/">Lunch Break Launch</a>
-    <a href="https://realcodytye.kit.com/2db1511f0c" target="_blank" rel="noopener">16 Free Templates</a>
+    <a href="#templates">16 Free Templates</a>
   </nav>
 </div>
 
@@ -230,6 +230,33 @@
   </div>
 </section>
 
+<!-- TEMPLATES — inline Kit form -->
+<section class="magnet" id="templates">
+  <div class="wrap">
+    <div class="magnet-card">
+      <div class="eyebrow" style="text-align:center;">Free download</div>
+      <h3>16 Viral Post Templates</h3>
+      <p>The exact post formats I used to build 18,000+ followers on Threads. Plug in your niche and post.</p>
+      <form class="kit-form" id="kit-form">
+        <div class="kit-form-fields">
+          <input type="text" name="first_name" placeholder="First name" autocomplete="given-name" />
+          <input type="email" name="email" placeholder="Email address" required autocomplete="email" />
+          <button type="submit" class="btn btn-primary">
+            Send Me the Templates
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5"/></svg>
+          </button>
+        </div>
+        <p class="kit-form-error" id="kit-form-error" hidden></p>
+      </form>
+      <div class="kit-form-success" id="kit-form-success" hidden>
+        <p style="font-weight:700; color:var(--print); margin-bottom:4px;">Check your inbox.</p>
+        <p style="font-size:15px;">The templates are on their way. Check your spam folder if you don't see them in a minute.</p>
+      </div>
+      <p class="magnet-note">No spam. Unsubscribe anytime.</p>
+    </div>
+  </div>
+</section>
+
 <!-- OUT — close -->
 <section class="out">
   <div class="wrap">
@@ -240,7 +267,7 @@
         Get the Threads Playbook
         <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5"/></svg>
       </a>
-      <a class="btn btn-secondary" href="https://realcodytye.kit.com/2db1511f0c" target="_blank" rel="noopener">Get 16 Free Templates</a>
+      <a class="btn btn-secondary" href="#templates">Get 16 Free Templates</a>
     </div>
   </div>
 </section>
@@ -258,6 +285,42 @@
 
 <script src="https://lzy.ist/track.js" data-world="Gk5OtjB4zTKg"></script>
 <script>
+(function() {
+  var form = document.getElementById('kit-form');
+  if (!form) return;
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    var btn = form.querySelector('button[type=submit]');
+    var errorEl = document.getElementById('kit-form-error');
+    var successEl = document.getElementById('kit-form-success');
+    var email = form.email.value.trim();
+    var firstName = form.first_name.value.trim();
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+    errorEl.hidden = true;
+    fetch('https://api.convertkit.com/v3/forms/9652830/subscribe', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ api_key: 'kit_0c786f643070f880b9527030cee18d49', email: email, first_name: firstName })
+    })
+    .then(function(res) { return res.json(); })
+    .then(function(data) {
+      if (data.subscription) {
+        form.hidden = true;
+        successEl.hidden = false;
+      } else {
+        throw new Error(data.message || 'Something went wrong.');
+      }
+    })
+    .catch(function(err) {
+      errorEl.textContent = err.message || 'Something went wrong. Try again.';
+      errorEl.hidden = false;
+      btn.disabled = false;
+      btn.textContent = 'Send Me the Templates';
+    });
+  });
+})();
+
 (function() {
   var toggle = document.querySelector('.nav-toggle');
   var drawer = document.getElementById('nav-drawer');
