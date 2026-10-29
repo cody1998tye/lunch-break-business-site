@@ -1,7 +1,9 @@
 {
   "detector": {
     "ignoreRules": [],
-    "ignoreFiles": [],
+    "ignoreFiles": [
+      "og-preview.html"
+    ],
     "ignoreValues": [
       {
         "rule": "design-system-font-size",
