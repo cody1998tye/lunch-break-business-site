@@ -24,15 +24,27 @@
 </head>
 <body>
 
-<!-- NAV — full-bleed border-bottom -->
+<!-- NAV -->
 <nav class="nav">
   <a href="/" class="nav-brand">Lunch Break Business<span class="dot">.</span></a>
-  <div class="nav-links">
+  <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-drawer">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="nav-overlay" id="nav-overlay"></div>
+<div class="nav-drawer" id="nav-drawer" role="dialog" aria-label="Site navigation">
+  <button class="nav-drawer-close" aria-label="Close menu">
+    <svg viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M4 4l14 14M18 4L4 18"/></svg>
+  </button>
+  <nav class="nav-drawer-links">
+    <a href="/" class="active">Home</a>
     <a href="blog/">Blog</a>
     <a href="threads-playbook/">Threads Playbook</a>
+    <a href="lunch-break-launch/">Lunch Break Launch</a>
     <a href="https://realcodytye.kit.com/2db1511f0c" target="_blank" rel="noopener">16 Free Templates</a>
-  </div>
-</nav>
+  </nav>
+</div>
 
 <main>
 
@@ -245,5 +257,19 @@
 </footer>
 
 <script src="https://lzy.ist/track.js" data-world="Gk5OtjB4zTKg"></script>
+<script>
+(function() {
+  var toggle = document.querySelector('.nav-toggle');
+  var drawer = document.getElementById('nav-drawer');
+  var overlay = document.getElementById('nav-overlay');
+  var close = document.querySelector('.nav-drawer-close');
+  function openDrawer() { drawer.classList.add('is-open'); overlay.classList.add('is-open'); toggle.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden'; }
+  function closeDrawer() { drawer.classList.remove('is-open'); overlay.classList.remove('is-open'); toggle.setAttribute('aria-expanded','false'); document.body.style.overflow=''; }
+  toggle.addEventListener('click', openDrawer);
+  close.addEventListener('click', closeDrawer);
+  overlay.addEventListener('click', closeDrawer);
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeDrawer(); });
+})();
+</script>
 </body>
 </html>
