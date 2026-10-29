@@ -1485,6 +1485,8 @@ details > div { padding-bottom: var(--s5); }
   transition: background .15s, color .15s;
 }
 .guide-chapter-nav a:hover { background: var(--ink); color: var(--on-ink); }
+.guide-chapter-nav .btn-primary { color: var(--bg); }
+.guide-chapter-nav .btn-primary:hover { color: var(--bg); }
 .guide-chapter-nav a.prev { margin-right: auto; }
 .done-btn {
   font-family: var(--font-display);
