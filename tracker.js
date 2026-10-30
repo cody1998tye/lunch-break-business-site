@@ -1,5 +1,5 @@
 (function () {
-  var WORKER_URL = 'YOUR_WORKER_URL'; // e.g. https://lbb-analytics.YOUR_NAME.workers.dev
+  var WORKER_URL = 'https://lbb-analytics.cody1998tye.workers.dev';
 
   var sessionId = Math.random().toString(36).slice(2) + Date.now().toString(36);
   var startTime = Date.now();
