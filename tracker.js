@@ -62,7 +62,17 @@
 
   // Heartbeat every 30s — captures scroll/time even if unload never fires
   setInterval(function () {
-    sendExit(true);
-    exitSent = false; // allow next heartbeat
+    fetch(WORKER_URL + '/track', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        type: 'exit',
+        sessionId: sessionId,
+        page: location.pathname,
+        timeOnPage: Math.round((Date.now() - startTime) / 1000),
+        scrollDepth: maxScroll,
+        timestamp: Date.now()
+      })
+    }).catch(function () {});
   }, 30000);
 })();
