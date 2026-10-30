@@ -260,6 +260,7 @@ ${bodyHtml}
   <a href="../" class="essay-back">← All posts</a>
 </article>
 ${FOOTER('../../')}
+<script src="../../tracker.js"></script>
 </body>
 </html>`;
 }
@@ -329,6 +330,7 @@ ${NAV('blog-index')}
 </section>
 
 ${FOOTER('../')}
+<script src="../tracker.js"></script>
 </body>
 </html>`;
 }

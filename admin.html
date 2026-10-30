@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>LBB Admin</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
+<style>
+  :root {
+    --bg: #0f1117;
+    --surface: #1a1d27;
+    --border: #2a2d3a;
+    --text: #e8eaf0;
+    --muted: #6b7280;
+    --accent: #6366f1;
+    --green: #22c55e;
+    --yellow: #f59e0b;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 14px; min-height: 100vh; }
+
+  /* Login */
+  #login { display: flex; align-items: center; justify-content: center; min-height: 100vh; }
+  .login-box { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 40px; width: 360px; }
+  .login-box h1 { font-size: 18px; margin-bottom: 8px; }
+  .login-box p { color: var(--muted); font-size: 13px; margin-bottom: 24px; }
+  .login-box input { width: 100%; padding: 10px 14px; background: var(--bg); border: 1px solid var(--border); border-radius: 8px; color: var(--text); font-size: 14px; outline: none; }
+  .login-box input:focus { border-color: var(--accent); }
+  .login-box button { width: 100%; margin-top: 12px; padding: 10px; background: var(--accent); border: none; border-radius: 8px; color: #fff; font-size: 14px; font-weight: 600; cursor: pointer; }
+  .login-box .error { color: #f87171; font-size: 13px; margin-top: 10px; display: none; }
+
+  /* Dashboard */
+  #dashboard { display: none; max-width: 1100px; margin: 0 auto; padding: 32px 20px; }
+  .top-bar { display: flex; align-items: center; justify-content: space-between; margin-bottom: 28px; }
+  .top-bar h1 { font-size: 20px; font-weight: 700; }
+  .top-bar button { background: none; border: 1px solid var(--border); border-radius: 8px; color: var(--muted); padding: 6px 14px; cursor: pointer; font-size: 13px; }
+  .top-bar button:hover { color: var(--text); border-color: var(--muted); }
+
+  /* Cards */
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 28px; }
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 20px 24px; }
+  .card-label { color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: .06em; margin-bottom: 8px; }
+  .card-value { font-size: 32px; font-weight: 700; line-height: 1; }
+  .card-sub { color: var(--muted); font-size: 12px; margin-top: 6px; }
+
+  /* Chart */
+  .panel { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin-bottom: 28px; }
+  .panel h2 { font-size: 14px; font-weight: 600; margin-bottom: 20px; }
+  .chart-wrap { position: relative; height: 220px; }
+
+  /* Tables */
+  .tables { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 700px) { .tables { grid-template-columns: 1fr; } }
+  table { width: 100%; border-collapse: collapse; }
+  th { text-align: left; color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: .06em; padding: 0 0 10px; border-bottom: 1px solid var(--border); }
+  td { padding: 10px 0; border-bottom: 1px solid var(--border); color: var(--text); font-size: 13px; }
+  tr:last-child td { border-bottom: none; }
+  .page-cell { max-width: 200px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .badge { display: inline-block; background: var(--bg); border-radius: 4px; padding: 2px 7px; font-size: 11px; color: var(--muted); }
+
+  /* Loading */
+  .loading { text-align: center; color: var(--muted); padding: 60px; }
+  .dot-spin::after { content: '...'; animation: dots 1.2s steps(4, end) infinite; }
+  @keyframes dots { 0%,100%{content:'.'} 33%{content:'..'} 66%{content:'...'} }
+</style>
+</head>
+<body>
+
+<!-- Login -->
+<div id="login">
+  <div class="login-box">
+    <h1>LBB Admin</h1>
+    <p>Enter your dashboard password to continue.</p>
+    <input type="password" id="pw-input" placeholder="Password" />
+    <button id="pw-btn">Sign in</button>
+    <div class="error" id="pw-error">Wrong password. Try again.</div>
+  </div>
+</div>
+
+<!-- Dashboard -->
+<div id="dashboard">
+  <div class="top-bar">
+    <h1>Analytics — Last 30 days</h1>
+    <button id="logout-btn">Sign out</button>
+  </div>
+
+  <div id="main-content">
+    <div class="loading"><span class="dot-spin">Loading</span></div>
+  </div>
+</div>
+
+<script>
+// ─── CONFIG ────────────────────────────────────────────────────────────────────
+const WORKER_URL = 'YOUR_WORKER_URL'; // e.g. https://lbb-analytics.YOUR_NAME.workers.dev
+const PW_KEY = 'lbb_admin_pw';
+
+// ─── AUTH ──────────────────────────────────────────────────────────────────────
+const pwInput = document.getElementById('pw-input');
+const pwBtn   = document.getElementById('pw-btn');
+const pwError = document.getElementById('pw-error');
+
+function savedPw() { return localStorage.getItem(PW_KEY) || ''; }
+function savePw(p) { localStorage.setItem(PW_KEY, p); }
+function clearPw() { localStorage.removeItem(PW_KEY); }
+
+async function tryLogin(pw) {
+  pwBtn.textContent = 'Checking…';
+  pwBtn.disabled = true;
+  try {
+    const res = await fetch(WORKER_URL + '/data', { headers: { 'X-Password': pw } });
+    if (res.status === 401) {
+      pwError.style.display = 'block';
+      pwBtn.textContent = 'Sign in';
+      pwBtn.disabled = false;
+      return;
+    }
+    savePw(pw);
+    const events = await res.json();
+    showDashboard(events);
+  } catch (e) {
+    pwError.textContent = 'Could not reach analytics server. Check WORKER_URL.';
+    pwError.style.display = 'block';
+    pwBtn.textContent = 'Sign in';
+    pwBtn.disabled = false;
+  }
+}
+
+pwBtn.addEventListener('click', () => tryLogin(pwInput.value.trim()));
+pwInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') pwBtn.click(); });
+document.getElementById('logout-btn').addEventListener('click', () => {
+  clearPw();
+  location.reload();
+});
+
+// Auto-login if saved
+if (savedPw()) {
+  document.getElementById('login').style.display = 'none';
+  document.getElementById('dashboard').style.display = 'block';
+  fetch(WORKER_URL + '/data', { headers: { 'X-Password': savedPw() } })
+    .then(r => r.status === 401 ? (clearPw(), location.reload()) : r.json())
+    .then(showDashboard)
+    .catch(() => {
+      document.getElementById('main-content').innerHTML =
+        '<div class="loading">Could not reach analytics server.</div>';
+    });
+}
+
+// ─── RENDER ────────────────────────────────────────────────────────────────────
+function showDashboard(events) {
+  document.getElementById('login').style.display = 'none';
+  document.getElementById('dashboard').style.display = 'block';
+
+  const pageviews = events.filter(e => e.type === 'pageview');
+  const exits     = events.filter(e => e.type === 'exit');
+
+  // Unique sessions
+  const sessions = new Set(pageviews.map(e => e.sessionId)).size;
+  const totalViews = pageviews.length;
+
+  // Avg time on page (from exit events, exclude bounces < 3s)
+  const times = exits.map(e => e.timeOnPage).filter(t => t >= 3);
+  const avgTime = times.length ? Math.round(times.reduce((a, b) => a + b, 0) / times.length) : 0;
+
+  // Avg scroll depth
+  const scrolls = exits.map(e => e.scrollDepth).filter(s => s > 0);
+  const avgScroll = scrolls.length ? Math.round(scrolls.reduce((a, b) => a + b, 0) / scrolls.length) : 0;
+
+  // Daily counts for chart
+  const dailyMap = {};
+  const today = new Date();
+  for (let i = 29; i >= 0; i--) {
+    const d = new Date(today.getTime() - i * 86400000);
+    const k = d.toISOString().slice(0, 10);
+    dailyMap[k] = { views: 0, visitors: new Set() };
+  }
+  for (const e of pageviews) {
+    const k = (e.serverTime || e.timestamp).toString().slice(0, 10);
+    if (dailyMap[k]) {
+      dailyMap[k].views++;
+      dailyMap[k].visitors.add(e.sessionId);
+    }
+  }
+  const labels = Object.keys(dailyMap).map(d => {
+    const [, m, day] = d.split('-');
+    return `${Number(m)}/${Number(day)}`;
+  });
+  const viewsData    = Object.values(dailyMap).map(d => d.views);
+  const visitorsData = Object.values(dailyMap).map(d => d.visitors.size);
+
+  // Top pages
+  const pageStats = {};
+  for (const e of pageviews) {
+    const p = e.page || '/';
+    if (!pageStats[p]) pageStats[p] = { views: 0, times: [], scrolls: [] };
+    pageStats[p].views++;
+  }
+  for (const e of exits) {
+    const p = e.page || '/';
+    if (pageStats[p]) {
+      if (e.timeOnPage >= 3) pageStats[p].times.push(e.timeOnPage);
+      if (e.scrollDepth > 0) pageStats[p].scrolls.push(e.scrollDepth);
+    }
+  }
+  const topPages = Object.entries(pageStats)
+    .sort((a, b) => b[1].views - a[1].views)
+    .slice(0, 10)
+    .map(([page, s]) => ({
+      page,
+      views: s.views,
+      avgTime: s.times.length ? Math.round(s.times.reduce((a, b) => a + b, 0) / s.times.length) : 0,
+      avgScroll: s.scrolls.length ? Math.round(s.scrolls.reduce((a, b) => a + b, 0) / s.scrolls.length) : 0,
+    }));
+
+  // Recent visits (last 20 pageviews)
+  const recent = [...pageviews]
+    .sort((a, b) => (b.serverTime || b.timestamp) > (a.serverTime || a.timestamp) ? 1 : -1)
+    .slice(0, 20);
+
+  // Render
+  document.getElementById('main-content').innerHTML = `
+    <div class="cards">
+      <div class="card">
+        <div class="card-label">Unique Visitors</div>
+        <div class="card-value">${sessions.toLocaleString()}</div>
+        <div class="card-sub">last 30 days</div>
+      </div>
+      <div class="card">
+        <div class="card-label">Page Views</div>
+        <div class="card-value">${totalViews.toLocaleString()}</div>
+        <div class="card-sub">last 30 days</div>
+      </div>
+      <div class="card">
+        <div class="card-label">Avg Time on Page</div>
+        <div class="card-value">${fmtTime(avgTime)}</div>
+        <div class="card-sub">excluding bounces &lt; 3s</div>
+      </div>
+      <div class="card">
+        <div class="card-label">Avg Scroll Depth</div>
+        <div class="card-value">${avgScroll}%</div>
+        <div class="card-sub">of page height</div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h2>Daily Traffic</h2>
+      <div class="chart-wrap"><canvas id="traffic-chart"></canvas></div>
+    </div>
+
+    <div class="tables">
+      <div class="panel">
+        <h2>Top Pages</h2>
+        <table>
+          <thead><tr>
+            <th>Page</th>
+            <th>Views</th>
+            <th>Avg Time</th>
+            <th>Scroll</th>
+          </tr></thead>
+          <tbody>
+            ${topPages.map(p => `
+              <tr>
+                <td class="page-cell" title="${esc(p.page)}">${esc(p.page)}</td>
+                <td>${p.views}</td>
+                <td>${fmtTime(p.avgTime)}</td>
+                <td>${p.avgScroll}%</td>
+              </tr>`).join('')}
+          </tbody>
+        </table>
+      </div>
+
+      <div class="panel">
+        <h2>Recent Visits</h2>
+        <table>
+          <thead><tr>
+            <th>Page</th>
+            <th>Referrer</th>
+            <th>When</th>
+          </tr></thead>
+          <tbody>
+            ${recent.map(e => `
+              <tr>
+                <td class="page-cell" title="${esc(e.page || '/')}">${esc(e.page || '/')}</td>
+                <td><span class="badge">${esc(shortRef(e.referrer))}</span></td>
+                <td style="color:var(--muted)">${timeAgo(e.serverTime || e.timestamp)}</td>
+              </tr>`).join('')}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  `;
+
+  // Chart
+  new Chart(document.getElementById('traffic-chart'), {
+    type: 'line',
+    data: {
+      labels,
+      datasets: [
+        {
+          label: 'Page Views',
+          data: viewsData,
+          borderColor: '#6366f1',
+          backgroundColor: 'rgba(99,102,241,0.1)',
+          fill: true,
+          tension: 0.3,
+          pointRadius: 3,
+        },
+        {
+          label: 'Unique Visitors',
+          data: visitorsData,
+          borderColor: '#22c55e',
+          backgroundColor: 'rgba(34,197,94,0.07)',
+          fill: true,
+          tension: 0.3,
+          pointRadius: 3,
+        },
+      ],
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: { legend: { labels: { color: '#9ca3af', boxWidth: 12 } } },
+      scales: {
+        x: { ticks: { color: '#6b7280', maxTicksLimit: 10 }, grid: { color: '#2a2d3a' } },
+        y: { ticks: { color: '#6b7280' }, grid: { color: '#2a2d3a' }, beginAtZero: true },
+      },
+    },
+  });
+}
+
+// ─── HELPERS ───────────────────────────────────────────────────────────────────
+function fmtTime(s) {
+  if (!s) return '—';
+  if (s < 60) return s + 's';
+  return Math.floor(s / 60) + 'm ' + (s % 60) + 's';
+}
+
+function esc(s) {
+  return (s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+function shortRef(ref) {
+  if (!ref) return 'direct';
+  try {
+    const host = new URL(ref).hostname.replace('www.', '');
+    return host.length > 18 ? host.slice(0, 18) + '…' : host;
+  } catch { return 'direct'; }
+}
+
+function timeAgo(ts) {
+  const diff = Date.now() - new Date(ts).getTime();
+  const m = Math.floor(diff / 60000);
+  if (m < 1) return 'just now';
+  if (m < 60) return m + 'm ago';
+  const h = Math.floor(m / 60);
+  if (h < 24) return h + 'h ago';
+  return Math.floor(h / 24) + 'd ago';
+}
+</script>
+</body>
+</html>
