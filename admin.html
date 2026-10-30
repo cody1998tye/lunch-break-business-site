@@ -107,7 +107,7 @@ async function tryLogin(pw) {
   pwBtn.textContent = 'Checking…';
   pwBtn.disabled = true;
   try {
-    const res = await fetch(WORKER_URL + '/data', { headers: { 'X-Password': pw } });
+    const res = await fetch(WORKER_URL + '/data?pw=' + encodeURIComponent(pw));
     if (res.status === 401) {
       pwError.style.display = 'block';
       pwBtn.textContent = 'Sign in';

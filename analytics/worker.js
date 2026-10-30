@@ -4,7 +4,7 @@
 // Required KV namespace binding: ANALYTICS (bind in Worker settings → KV Namespace Bindings)
 // Required secret: DASHBOARD_PASSWORD (set in Worker settings → Variables → Secret)
 
-const ALLOWED_ORIGIN = 'https://realcodytye.com';
+const ALLOWED_ORIGIN = '*';
 
 export default {
   async fetch(request, env) {
@@ -20,6 +20,12 @@ export default {
 
     if (request.method === 'GET' && url.pathname === '/data') {
       return handleData(request, env);
+    }
+
+    if (request.method === 'GET' && url.pathname === '/debug') {
+      const pw = request.headers.get('X-Password') || '(none)';
+      const stored = env.DASHBOARD_PASSWORD || '(not set)';
+      return new Response(`received: "${pw}" | stored: "${stored}" | match: ${pw === stored}`, { headers: corsHeaders() });
     }
 
     return new Response('Not found', { status: 404 });
@@ -82,9 +88,10 @@ async function handleTrack(request, env) {
 // ─── DASHBOARD DATA ───────────────────────────────────────────────────────────
 
 async function handleData(request, env) {
-  const password = request.headers.get('X-Password');
+  const url = new URL(request.url);
+  const password = request.headers.get('X-Password') || url.searchParams.get('pw');
   if (!password || password !== env.DASHBOARD_PASSWORD) {
-    return new Response('Unauthorized', { status: 401 });
+    return new Response('Unauthorized', { status: 401, headers: corsHeaders() });
   }
 
   const days = 30;
