@@ -31,8 +31,8 @@
     })
   }).catch(function () {});
 
-  function sendExit() {
-    if (exitSent) return;
+  function sendExit(allowRepeat) {
+    if (exitSent && !allowRepeat) return;
     exitSent = true;
     var payload = JSON.stringify({
       type: 'exit',
@@ -54,8 +54,15 @@
     }
   }
 
-  window.addEventListener('beforeunload', sendExit);
+  window.addEventListener('beforeunload', function () { sendExit(false); });
   document.addEventListener('visibilitychange', function () {
-    if (document.visibilityState === 'hidden') sendExit();
+    if (document.visibilityState === 'hidden') sendExit(false);
   });
+  window.addEventListener('pagehide', function () { sendExit(false); });
+
+  // Heartbeat every 30s — captures scroll/time even if unload never fires
+  setInterval(function () {
+    sendExit(true);
+    exitSent = false; // allow next heartbeat
+  }, 30000);
 })();
