@@ -150,8 +150,13 @@ function showDashboard(events) {
   document.getElementById('login').style.display = 'none';
   document.getElementById('dashboard').style.display = 'block';
 
-  const pageviews = events.filter(e => e.type === 'pageview');
-  const exits     = events.filter(e => e.type === 'exit');
+  // Filter likely bots: sessions where scroll is 0 and time > 5 min
+  const botSessions = new Set(
+    events.filter(e => e.type === 'exit' && e.scrollDepth === 0 && e.timeOnPage > 300)
+          .map(e => e.sessionId)
+  );
+  const pageviews = events.filter(e => e.type === 'pageview' && !botSessions.has(e.sessionId));
+  const exits     = events.filter(e => e.type === 'exit'     && !botSessions.has(e.sessionId));
 
   // Unique sessions
   const sessions = new Set(pageviews.map(e => e.sessionId)).size;
