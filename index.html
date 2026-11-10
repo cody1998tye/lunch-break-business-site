@@ -21,6 +21,92 @@
 <meta name="twitter:description" content="A full-time warehouse worker and dad of four built 18,000+ Threads followers in 30 minutes a day. No quitting. No clearing your schedule. Just a system that works in the time you already have.">
 <meta name="twitter:image" content="https://realcodytye.com/og-image-v3.png?v=3">
 <link rel="stylesheet" href="style.css">
+<style>
+.profile-intro {
+  background: var(--ink);
+  padding: var(--s8) var(--edge);
+  text-align: center;
+}
+.profile-wrap {
+  max-width: 560px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--s5);
+}
+.profile-photo {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center top;
+  border: 3px solid rgba(255,255,255,.1);
+}
+@media (min-width: 600px) {
+  .profile-photo { width: 200px; height: 200px; }
+}
+.profile-handle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--on-ink);
+  font-family: var(--font-label);
+  font-size: 15px;
+  letter-spacing: .03em;
+}
+.threads-logo {
+  width: 18px;
+  height: 18px;
+  fill: var(--on-ink);
+  flex-shrink: 0;
+}
+.profile-stats {
+  display: flex;
+  align-items: center;
+  gap: var(--s6);
+  padding: var(--s4) var(--s6);
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 12px;
+}
+.stat { text-align: center; }
+.stat-num {
+  display: block;
+  font-family: var(--font-label);
+  font-size: clamp(1.6rem, 5vw, 2.2rem);
+  font-weight: 700;
+  color: var(--bg);
+  line-height: 1;
+}
+.stat-label {
+  display: block;
+  font-family: var(--font-label);
+  font-size: 11px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--mute-ink);
+  margin-top: 5px;
+}
+.stat-divider {
+  width: 1px;
+  height: 44px;
+  background: rgba(255,255,255,.1);
+  flex-shrink: 0;
+}
+.profile-about {
+  max-width: 460px;
+  color: var(--mute-ink);
+  font-size: 15px;
+  line-height: 1.7;
+  text-align: center;
+  padding-top: var(--s3);
+  border-top: 1px solid rgba(255,255,255,.07);
+  width: 100%;
+}
+.profile-about strong { color: var(--on-ink); font-weight: 600; }
+.profile-about p + p { margin-top: 10px; }
+</style>
 </head>
 <body>
 
@@ -49,6 +135,32 @@
 </div>
 
 <main>
+
+<!-- PROFILE INTRO -->
+<section class="profile-intro">
+  <div class="profile-wrap">
+    <img src="images/cody-profile.jpg" alt="Cody Tye — warehouse worker, dad of four, Threads creator" class="profile-photo">
+    <div class="profile-handle">
+      <svg class="threads-logo" viewBox="0 0 192 192" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M141.537 88.988a66.667 66.667 0 0 0-2.518-1.143c-1.482-27.307-16.403-42.94-41.457-43.1h-.34c-14.986 0-27.449 6.396-35.12 18.036l13.779 9.452c5.73-8.695 14.724-10.548 21.348-10.548h.229c8.249.053 14.474 2.452 18.503 7.129 2.932 3.405 4.893 8.111 5.864 14.05-7.314-1.243-15.224-1.626-23.68-1.14-23.82 1.371-39.134 15.264-38.105 34.568.522 9.792 5.4 18.216 13.735 23.719 7.047 4.652 16.124 6.927 25.557 6.412 12.458-.683 22.231-5.436 29.049-14.127 5.178-6.6 8.453-15.153 9.899-25.93 5.937 3.583 10.337 8.298 12.767 13.966 4.132 9.635 4.373 25.468-8.546 38.376-11.319 11.308-24.925 16.2-45.488 16.35-22.735-.168-39.903-7.464-51.032-21.69C33.56 134.46 28.33 115.42 28.14 92c.19-23.42 5.42-42.46 15.515-56.577C54.785 21.197 71.953 13.9 94.69 13.733c22.904.17 40.512 7.498 52.33 21.78 5.762 7.049 10.098 15.907 12.95 26.284l16.012-4.256c-3.511-12.979-9.013-24.082-16.465-33.158C143.853 7.401 121.084-1.012 94.73.001 68.414 1.013 46.08 10.62 30.428 29.737 15.962 47.482 8.277 72.313 8.044 92.003v.072c.233 19.69 7.918 44.52 22.384 62.265 15.652 19.117 38.013 28.724 64.33 29.736h.42c23.047-.001 43.038-7.126 56.885-20.986 19.512-19.526 18.879-44.195 12.467-59.279-4.643-10.816-13.608-19.567-22.993-24.823Zm-40.24 44.943c-5.453.299-11.095-1.354-15.065-4.025-5.33-3.516-6.015-8.088-5.782-10.651.606-6.754 7.07-13.908 25.516-14.954 2.228-.129 4.395-.187 6.516-.187 6.095 0 11.86.572 17.189 1.666-1.955 24.44-15.728 27.822-28.374 28.151Z"/></svg>
+      @realcodytye
+    </div>
+    <div class="profile-stats">
+      <div class="stat">
+        <span class="stat-num">18K</span>
+        <span class="stat-label">Followers</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <span class="stat-num">$5K+</span>
+        <span class="stat-label">Sales Generated</span>
+      </div>
+    </div>
+    <div class="profile-about">
+      <p>I'm a <strong>dad of four</strong>, a <strong>full-time warehouse worker</strong>, and a <strong>DoorDasher</strong> on the side. I started building online because I was tired of my income being completely controlled by someone else's schedule.</p>
+      <p>I help <strong>working men</strong> build their first income-generating offer online in the time they already have, without quitting their jobs.</p>
+    </div>
+  </div>
+</section>
 
 <!-- HERO — yellow body bleeds, wrap constrains content -->
 <div class="wrap hero-grid">
